@@ -3,8 +3,8 @@ import './App.css';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { Image } from './components/Image';
 import { Button } from './components/Button';
-import {ImageRow} from "./components/ImageRow";
-import {ShoppableImage} from "./components/ShoppableImage"
+import { ImageRow } from './components/ImageRow';
+import { ShoppableImage } from './components/ShoppableImage';
 
 const Row = styled.section`
   ${(props) =>
@@ -72,7 +72,6 @@ const IntroText = styled.p`
   }
 `;
 
-
 function App() {
   return (
     <Container className="container">
@@ -84,13 +83,13 @@ function App() {
           quality={80}
           sizes="100vw"
           src={[
-            'https://media.missguided.com/i/missguided/restyld_hero_image_25_03_21',
+            'https://media.missguided.com/i/missguided/restyld-lp-desktop-v2',
             {
               media: '(max-width: 767px)',
               width: 414,
               height: 414,
               src:
-                'https://media.missguided.com/i/missguided/restyld_hero_mob_25_03_21',
+                'https://media.missguided.com/i/missguided/restyld-lp-mobile-v2',
             },
           ]}
           width={1440}
@@ -98,20 +97,19 @@ function App() {
       </Row>
       <Row maxWidth="720">
         <IntroText>
-          Introducing the RE_STYLD range from Missguided. Putting the planet
-          first, with our capsule collection of elevated and curated styles,
-          made from 100% recycled materials. Discover classic fits and key
-          staples, designed to stand the test of time.
+          Introducing RE_STYLD by Missguided. Putting the planet first with
+          elevated and curated styles, made from recycled fibres. Discover
+          classic fits and key staples, designed to stand the test of time.
         </IntroText>
         <Row maxWidth="640" flex>
           <Button text="shop now" link="/collaborations/restyld" />
           <Button
             text="find out more"
-            link="https://www.missguided.co.uk/babezine/our-world/introducing-re-styld"
+            link="https://www.missguided.co.uk/babezine/our-world/introducing-restyld-by-missguided"
           />
         </Row>
       </Row>
-      <Row>
+      {/* <Row>
         <ImageRow contrast>
           <ShoppableImage
             alt="restyld jeans"
@@ -133,7 +131,7 @@ function App() {
             text="shop dresses"
           />
         </ImageRow>
-      </Row>
+      </Row> */}
       <Row>
         <ImageRow overlap>
           <ShoppableImage
@@ -182,7 +180,7 @@ function App() {
         </ImageRow>
       </Row>
 
-      <Row>
+      {/* <Row>
         <ImageRow padded>
           <ShoppableImage
             alt="restyld tops"
@@ -203,7 +201,7 @@ function App() {
             text="shop denim"
           />
         </ImageRow>
-      </Row>
+      </Row> */}
     </Container>
   );
 }
