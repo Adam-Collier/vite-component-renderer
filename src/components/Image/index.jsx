@@ -38,7 +38,7 @@ export const Image = ({
   }, [pictureEl]);
 
   let imageSizes = [0.25, 0.5, 1, 1.5, 2, 3];
-  let imageTypes = ['avif', 'webp', 'jpeg'];
+  let imageTypes = ['webp', 'jpeg'];
 
   let createSrcSet = ({ type, width, src }) => {
     return imageSizes
