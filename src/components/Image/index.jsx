@@ -1,15 +1,46 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-export const Image = ({
-  width = 480,
-  height = 480,
-  alt = 'image alt',
-  src,
-  quality = 80,
-  backgroundColor = '#ECECF2',
-  sizes = '(max-width: 600px) 100vw, 20vw',
-}) => {
+const ImageWrapper = styled.div`
+  display: block;
+  width: 100%;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+  }
+
+  div {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    width: 100%;
+    background-color: ${(props) => props.backgroundColor};
+    padding-top: ${(props) => `${(props.height / props.width) * 100}%`};
+
+    ${(props) =>
+      props.isArtDirected &&
+      props.artDirectedImages
+        .map(({ media, height, width }) => {
+          return `
+        @media ${media} {
+          padding-top: ${(height / width) * 100}%;
+        }
+      `;
+        })
+        .join('')}
+  }
+`;
+
+export const Image = (props) => {
+  const { width, alt, src, quality, sizes } = props;
+
   const pictureEl = useRef(null);
 
   useEffect(() => {
@@ -58,45 +89,8 @@ export const Image = ({
     [, ...artDirectedImages] = src;
   }
 
-  const ImageWrapper = styled.div`
-    display: block;
-    width: 100%;
-    position: relative;
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      max-width: none;
-    }
-
-    div {
-      position: relative;
-      overflow: hidden;
-      height: 0;
-      width: 100%;
-      background-color: ${backgroundColor};
-      padding-top: ${`${(height / width) * 100}%`};
-
-      ${isArtDirected &&
-      artDirectedImages
-        .map(({ media, height, width }) => {
-          console.log(media, height, width);
-          return `
-        @media ${media} {
-          padding-top: ${(height / width) * 100}%;
-        }
-      `;
-        })
-        .join('')}
-    }
-  `;
-
   return (
-    <ImageWrapper>
+    <ImageWrapper {...props}>
       <div></div>
       <picture ref={pictureEl}>
         {isArtDirected &&
@@ -127,4 +121,13 @@ export const Image = ({
       </picture>
     </ImageWrapper>
   );
+};
+
+Image.defaultProps = {
+  width: 480,
+  height: 480,
+  alt: 'image alt',
+  quality: 80,
+  backgroundColor: '#ECECF2',
+  sizes: '(max-width: 600px) 100vw, 20vw',
 };
