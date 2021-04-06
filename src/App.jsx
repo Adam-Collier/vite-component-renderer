@@ -73,7 +73,6 @@ const IntroText = styled.p`
 `;
 
 let componentMap = {
-  GlobalStyle,
   IntroText,
   Row,
   Image,
