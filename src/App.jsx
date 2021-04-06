@@ -72,138 +72,353 @@ const IntroText = styled.p`
   }
 `;
 
+let componentMap = {
+  GlobalStyle,
+  IntroText,
+  Row,
+  Image,
+  ShoppableImage,
+  ImageRow,
+  Button,
+};
+
+let data = {
+  territory: 'uk',
+  content: [
+    {
+      component: 'Row',
+      children: [
+        {
+          component: 'Image',
+          props: {
+            alt: 'grid item alt',
+            height: 600,
+            quality: 80,
+            sizes: '100vw',
+            src: [
+              'https://media.missguided.com/i/missguided/restyld-lp-desktop-v2',
+              {
+                media: '(max-width: 767px)',
+                width: 414,
+                height: 414,
+                src:
+                  'https://media.missguided.com/i/missguided/restyld-lp-mobile-v2',
+              },
+            ],
+            width: 1440,
+          },
+        },
+      ],
+    },
+    {
+      component: 'Row',
+      props: {
+        maxWidth: 720,
+      },
+      children: [
+        {
+          component: 'IntroText',
+          children:
+            'Introducing RE_STYLD by Missguided. Putting the planet first with elevated and curated styles, made from recycled fibres. Discover classic fits and key staples, designed to stand the test of time. ',
+        },
+        {
+          component: 'Row',
+          props: {
+            flex: true,
+          },
+          children: [
+            {
+              component: 'Button',
+              props: {
+                text: 'shop now',
+                link: 'new-in',
+              },
+            },
+            {
+              component: 'Button',
+              props: {
+                text: 'shop now',
+                link: 'new-in',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      component: 'Row',
+      children: [
+        {
+          component: 'ImageRow',
+          props: {
+            layout: 'overlap',
+          },
+          children: [
+            {
+              component: 'ShoppableImage',
+              props: {
+                alt: 'restyld jeans',
+                height: 850,
+                sizes: 'max-width: 600px) 100vw, 30vw',
+                src:
+                  'https://media.missguided.com/i/missguided/restyld_sweats_25_03_21',
+                width: 680,
+                link: '/collaborations/restyld/restyld-hoodies-sweats',
+                text: 'shop sweats',
+              },
+            },
+            {
+              component: 'ShoppableImage',
+              props: {
+                alt: 'restyld jeans',
+                height: 850,
+                sizes: 'max-width: 600px) 100vw, 30vw',
+                src:
+                  'https://media.missguided.com/i/missguided/restyld_shorts_25_03_21',
+                width: 680,
+                link: '/collaborations/restyld/restyld-shorts',
+                text: 'shop shorts',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      component: 'Row',
+      children: [
+        {
+          component: 'ImageRow',
+          props: {
+            layout: 'sidebyside',
+          },
+          children: [
+            {
+              component: 'ShoppableImage',
+              props: {
+                alt: 'restyld jeans',
+                height: 800,
+                sizes: 'max-width: 600px) 100vw, 30vw',
+                src:
+                  'https://media.missguided.com/i/missguided/restyld_tops_25_03_21',
+                width: 680,
+                link: '/collaborations/restyld/restyld-jeans',
+                text: 'shop jeans',
+              },
+            },
+            {
+              component: 'ShoppableImage',
+              props: {
+                alt: 'restyld jeans',
+                height: 800,
+                sizes: 'max-width: 600px) 100vw, 30vw',
+                src:
+                  'https://media.missguided.com/i/missguided/restyld_trousers_25_03_21',
+                width: 680,
+                link: '/collaborations/restyld/restyld-jeans',
+                text: 'shop jeans',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      component: 'Row',
+      children: [
+        {
+          component: 'ImageRow',
+          props: {
+            layout: 'contrast',
+          },
+          children: [
+            {
+              component: 'ShoppableImage',
+              props: {
+                alt: 'restyld jeans',
+                height: 432,
+                sizes: 'max-width: 600px) 100vw, 30vw',
+                src:
+                  'https://media.missguided.com/i/missguided/restyled_jeans_25_03_21',
+                width: 432,
+                link: '/collaborations/restyld/restyld-jeans',
+                text: 'shop jeans',
+              },
+            },
+            {
+              component: 'ShoppableImage',
+              props: {
+                alt: 'restyld jeans',
+                height: 800,
+                sizes: 'max-width: 600px) 100vw, 30vw',
+                src:
+                  'https://media.missguided.com/i/missguided/restyld_dresses_25_03_21',
+                width: 720,
+                link: '/collaborations/restyld/restyld-jeans',
+                text: 'shop jeans',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+let renderer = (content, key) => {
+  if (componentMap[content.component] !== undefined) {
+    return React.createElement(
+      componentMap[content.component],
+      { ...content.props, key },
+      content.children &&
+        (typeof content.children === 'string'
+          ? content.children
+          : content.children.map((child, index) => renderer(child, index)))
+    );
+  }
+};
+
 function App() {
   return (
-    <Container className="container">
+    <>
       <GlobalStyle />
-      <Row>
-        <Image
-          alt="grid item alt"
-          height={600}
-          quality={80}
-          sizes="100vw"
-          src={[
-            'https://media.missguided.com/i/missguided/restyld-lp-desktop-v2',
-            {
-              media: '(max-width: 767px)',
-              width: 414,
-              height: 414,
-              src:
-                'https://media.missguided.com/i/missguided/restyld-lp-mobile-v2',
-            },
-          ]}
-          width={1440}
-        />
-      </Row>
-      <Row maxWidth="720">
-        <IntroText>
-          Introducing RE_STYLD by Missguided. Putting the planet first with
-          elevated and curated styles, made from recycled fibres. Discover
-          classic fits and key staples, designed to stand the test of time.
-        </IntroText>
-        <Row maxWidth="640" flex>
-          <Button text="shop now" link="/collaborations/restyld" />
-          <Button
-            text="find out more"
-            link="https://www.missguided.co.uk/babezine/our-world/introducing-restyld-by-missguided"
-          />
-        </Row>
-      </Row>
-      {/* <Row>
-        <ImageRow contrast>
-          <ShoppableImage
-            alt="restyld jeans"
-            height={432}
-            sizes="(max-width: 600px) 100vw, 30vw"
-            src="https://media.missguided.com/i/missguided/restyled_jeans_25_03_21"
-            width={432}
-            link="/collaborations/restyld/restyld-jeans"
-            text="shop jeans"
-          />
-          <ShoppableImage
-            alt="restyld dresses"
-            height={800}
-            quality={80}
-            sizes="(max-width: 600px) 100vw, 50vw"
-            src="https://media.missguided.com/i/missguided/restyld_dresses_25_03_21"
-            width={720}
-            link="/collaborations/restyld/restyld-dresses"
-            text="shop dresses"
-          />
-        </ImageRow>
-      </Row> */}
-      <Row>
-        <ImageRow overlap>
-          <ShoppableImage
-            alt="restyld sweats"
-            height={850}
-            sizes="(max-width: 600px) 50vw, 40vw"
-            src="https://media.missguided.com/i/missguided/restyld_sweats_25_03_21"
-            width={680}
-            link="/collaborations/restyld/restyld-hoodies-sweats"
-            text="shop sweats"
-          />
-          <ShoppableImage
-            alt="restyld shorts"
-            height={850}
-            quality={80}
-            sizes="(max-width: 600px) 50vw, 40vw"
-            src="https://media.missguided.com/i/missguided/restyld_shorts_25_03_21"
-            width={680}
-            link="/collaborations/restyld/restyld-shorts"
-            text="shop shorts"
-          />
-        </ImageRow>
-      </Row>
-
-      <Row>
-        <ImageRow sidebyside>
-          <ShoppableImage
-            alt="restyld tops"
-            height={800}
-            sizes="(max-width: 600px) 50vw, 40vw"
-            src="https://media.missguided.com/i/missguided/restyld_tops_25_03_21"
-            width={680}
-            link="/collaborations/restyld/restyld-tops"
-            text="shop tops"
-          />
-          <ShoppableImage
-            alt="restyld trousers"
-            height={800}
-            quality={80}
-            sizes="(max-width: 600px) 50vw, 40vw"
-            src="https://media.missguided.com/i/missguided/restyld_trousers_25_03_21"
-            width={680}
-            link="/collaborations/restyld/restyld-trousers"
-            text="shop trousers"
-          />
-        </ImageRow>
-      </Row>
-
-      {/* <Row>
-        <ImageRow padded>
-          <ShoppableImage
-            alt="restyld tops"
-            height={800}
-            sizes="(max-width: 600px) 100vw, 80vw"
-            src={[
-              'https://media.missguided.com/i/missguided/restyld_denim_25_03_21_2',
-              {
-                media: '(max-width: 768px)',
-                width: 650,
-                height: 800,
-                src:
-                  'https://media.missguided.com/i/missguided/restyld_denim_mobile_25_03_21',
-              },
-            ]}
-            width={1300}
-            link="/collaborations/restyld/restyld-denim"
-            text="shop denim"
-          />
-        </ImageRow>
-      </Row> */}
-    </Container>
+      {data.content.map((block, index) => renderer(block, index))}
+    </>
   );
 }
+
+// function App() {
+//   return (
+//     <Container className="container">
+//       <GlobalStyle />
+//       <Row>
+//         <Image
+//           alt="grid item alt"
+//           height={600}
+//           quality={80}
+//           sizes="100vw"
+//           src={[
+//             'https://media.missguided.com/i/missguided/restyld-lp-desktop-v2',
+//             {
+//               media: '(max-width: 767px)',
+//               width: 414,
+//               height: 414,
+//               src:
+//                 'https://media.missguided.com/i/missguided/restyld-lp-mobile-v2',
+//             },
+//           ]}
+//           width={1440}
+//         />
+//       </Row>
+//       <Row maxWidth="720">
+//         <IntroText>
+//           Introducing RE_STYLD by Missguided. Putting the planet first with
+//           elevated and curated styles, made from recycled fibres. Discover
+//           classic fits and key staples, designed to stand the test of time.
+//         </IntroText>
+//         <Row maxWidth="640" flex>
+//           <Button text="shop now" link="/collaborations/restyld" />
+//           <Button
+//             text="find out more"
+//             link="https://www.missguided.co.uk/babezine/our-world/introducing-restyld-by-missguided"
+//           />
+//         </Row>
+//       </Row>
+//       <Row>
+//         <ImageRow contrast>
+//           <ShoppableImage
+//             alt="restyld jeans"
+//             height={432}
+//             sizes="(max-width: 600px) 100vw, 30vw"
+//             src="https://media.missguided.com/i/missguided/restyled_jeans_25_03_21"
+//             width={432}
+//             link="/collaborations/restyld/restyld-jeans"
+//             text="shop jeans"
+//           />
+//           <ShoppableImage
+//             alt="restyld dresses"
+//             height={800}
+//             quality={80}
+//             sizes="(max-width: 600px) 100vw, 50vw"
+//             src="https://media.missguided.com/i/missguided/restyld_dresses_25_03_21"
+//             width={720}
+//             link="/collaborations/restyld/restyld-dresses"
+//             text="shop dresses"
+//           />
+//         </ImageRow>
+//       </Row>
+//       <Row>
+//         <ImageRow overlap>
+//           <ShoppableImage
+//             alt="restyld sweats"
+//             height={850}
+//             sizes="(max-width: 600px) 50vw, 40vw"
+//             src="https://media.missguided.com/i/missguided/restyld_sweats_25_03_21"
+//             width={680}
+//             link="/collaborations/restyld/restyld-hoodies-sweats"
+//             text="shop sweats"
+//           />
+//           <ShoppableImage
+//             alt="restyld shorts"
+//             height={850}
+//             quality={80}
+//             sizes="(max-width: 600px) 50vw, 40vw"
+//             src="https://media.missguided.com/i/missguided/restyld_shorts_25_03_21"
+//             width={680}
+//             link="/collaborations/restyld/restyld-shorts"
+//             text="shop shorts"
+//           />
+//         </ImageRow>
+//       </Row>
+
+//       <Row>
+//         <ImageRow sidebyside>
+//           <ShoppableImage
+//             alt="restyld tops"
+//             height={800}
+//             sizes="(max-width: 600px) 50vw, 40vw"
+//             src="https://media.missguided.com/i/missguided/restyld_tops_25_03_21"
+//             width={680}
+//             link="/collaborations/restyld/restyld-tops"
+//             text="shop tops"
+//           />
+//           <ShoppableImage
+//             alt="restyld trousers"
+//             height={800}
+//             quality={80}
+//             sizes="(max-width: 600px) 50vw, 40vw"
+//             src="https://media.missguided.com/i/missguided/restyld_trousers_25_03_21"
+//             width={680}
+//             link="/collaborations/restyld/restyld-trousers"
+//             text="shop trousers"
+//           />
+//         </ImageRow>
+//       </Row>
+
+//       {/* <Row>
+//         <ImageRow padded>
+//           <ShoppableImage
+//             alt="restyld tops"
+//             height={800}
+//             sizes="(max-width: 600px) 100vw, 80vw"
+//             src={[
+//               'https://media.missguided.com/i/missguided/restyld_denim_25_03_21_2',
+//               {
+//                 media: '(max-width: 768px)',
+//                 width: 650,
+//                 height: 800,
+//                 src:
+//                   'https://media.missguided.com/i/missguided/restyld_denim_mobile_25_03_21',
+//               },
+//             ]}
+//             width={1300}
+//             link="/collaborations/restyld/restyld-denim"
+//             text="shop denim"
+//           />
+//         </ImageRow>
+//       </Row> */}
+//     </Container>
+//   );
+// }
 
 export default App;
