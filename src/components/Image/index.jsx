@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useRef, useEffect } from "react";
+import styled from "styled-components";
 
 const ImageWrapper = styled.div`
   display: block;
@@ -34,7 +34,7 @@ const ImageWrapper = styled.div`
         }
       `;
         })
-        .join('')}
+        .join("")}
   }
 `;
 
@@ -48,7 +48,7 @@ export const Image = (props) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           let sources = Array.from(
-            pictureEl.current.querySelectorAll('source')
+            pictureEl.current.querySelectorAll("source")
           );
           sources.forEach((source) => {
             source.srcset = source.dataset.srcset;
@@ -63,13 +63,13 @@ export const Image = (props) => {
     };
 
     const observer = new IntersectionObserver(callback, options);
-    observer.observe(pictureEl.current.querySelector('img'));
+    observer.observe(pictureEl.current.querySelector("img"));
 
     return () => observer.disconnect();
   }, [pictureEl]);
 
   let imageSizes = [0.25, 0.5, 1, 1.5, 2, 3];
-  let imageTypes = ['webp', 'jpeg'];
+  let imageTypes = ["webp", "jpeg"];
 
   let createSrcSet = ({ type, width, src }) => {
     return imageSizes
@@ -77,7 +77,7 @@ export const Image = (props) => {
         let imageWidth = width * size;
         return `${src}.${type}?w=${imageWidth}&qlt=${quality} ${imageWidth}w`;
       })
-      .join(',');
+      .join(",");
   };
 
   const isArtDirected = Array.isArray(src);
@@ -126,8 +126,8 @@ export const Image = (props) => {
 Image.defaultProps = {
   width: 480,
   height: 480,
-  alt: 'image alt',
+  alt: "image alt",
   quality: 80,
-  backgroundColor: '#ECECF2',
-  sizes: '(max-width: 600px) 100vw, 20vw',
+  backgroundColor: "#ECECF2",
+  sizes: "(max-width: 600px) 100vw, 20vw",
 };
