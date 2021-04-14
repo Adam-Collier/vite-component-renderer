@@ -1,16 +1,16 @@
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
-import App from '../../App';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import theme from './theme';
+import React from "react";
+import { renderToString, renderToStaticMarkup } from "react-dom/server";
+import { ServerStyleSheet, StyleSheetManager } from "styled-components";
+import App from "../../App";
+import { globalStyles } from "../../styles/global";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import theme from "./theme";
 
-import prettier from 'https://unpkg.com/prettier@2.2.1/esm/standalone.mjs';
-import parserHTML from 'https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs';
+import prettier from "https://unpkg.com/prettier@2.2.1/esm/standalone.mjs";
+import parserHTML from "https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs";
 
 export const Code = () => {
   // const sheet = new ServerStyleSheet();
-
   // const markup = renderToString(sheet.collectStyles(<App />));
   // const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
   // console.log(styleTags);
@@ -18,6 +18,7 @@ export const Code = () => {
   const sheet = new ServerStyleSheet();
 
   try {
+    console.log(renderToStaticMarkup(<App />));
     const markup = renderToString(
       <StyleSheetManager sheet={sheet.instance}>
         <App />
@@ -26,6 +27,9 @@ export const Code = () => {
     const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
 
     const outputHTML = `
+    <style>
+      ${globalStyles}
+    </style>
     ${styleTags}
     ${markup}
     <script>
@@ -60,20 +64,18 @@ export const Code = () => {
     </script>
   `;
 
-      return (
-        <SyntaxHighlighter language="html" style={theme}>
-          {prettier.format(outputHTML, {
-            parser: 'html',
-            plugins: [parserHTML],
-          })}
-        </SyntaxHighlighter>
-      );
+    return (
+      <SyntaxHighlighter language="html" style={theme}>
+        {prettier.format(outputHTML, {
+          parser: "html",
+          plugins: [parserHTML],
+        })}
+      </SyntaxHighlighter>
+    );
   } catch (error) {
     // handle error
     console.error(error);
   } finally {
     sheet.seal();
   }
-
-
 };
