@@ -1,8 +1,10 @@
 import React from "react";
-import styled from "styled-components"
-import {Image} from "../Image"
+import styled from "styled-components";
+import { Image } from "../Image";
 
 const Wrapper = styled.div`
+  width: 100%;
+
   a {
     display: block;
     position: relative;
@@ -19,10 +21,10 @@ const Wrapper = styled.div`
     color: #fff;
     margin-bottom: 0;
 
-    font-family: 'HelveticaNeue-CondensedBold', 'HelveticaNeueBoldCondensed',
-      'HelveticaNeue-Bold-Condensed', 'Helvetica Neue Bold Condensed',
-      'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold',
-      'Helvetica Neue', 'Oswald', Arial, sans-serif;
+    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed",
+      "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed",
+      "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold",
+      "Helvetica Neue", "Oswald", Arial, sans-serif;
     font-weight: 400;
     font-stretch: condensed;
     text-transform: uppercase;
@@ -36,14 +38,23 @@ const Wrapper = styled.div`
 `;
 
 export const ShoppableImage = (props) => {
-    const { text, link } = props;
+  const { text, link } = props;
 
-    return (
-      <Wrapper>
-        <a href={link}>
-          <Image {...props} />
-          <p>{text}</p>
-        </a>
-      </Wrapper>
-    );
-}
+  return (
+    <Wrapper>
+      <a href={link}>
+        <Image {...props} />
+        {text && <p>{text}</p>}
+      </a>
+    </Wrapper>
+  );
+};
+
+ShoppableImage.defaultProps = {
+  link: "/new-in",
+  text: "joggers from £24",
+  width: 240,
+  height: 240,
+  alt: "grid item alt",
+  src: "https://media.missguided.com/i/missguided/playboy_storybook_default",
+};
