@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import Siema from "siema";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import { ArrowLeft, ArrowRight } from "react-feather";
 import { Wrapper as BlogpostsWrapper } from "../Blogposts";
 
 // this config will also be used for the
-export const siemaConfig = {
+export const keenConfig = {
   loop: true,
   duration: 300,
 };
@@ -22,10 +23,18 @@ const Navigation = styled.div`
   right: 3rem;
 
   /* if the carousel exists within the Blogposts component move the navigation */
-  ${BlogpostsWrapper} & {
+  @media (min-width: 768px) {
+    ${BlogpostsWrapper} & {
+      bottom: auto;
+      top: 2rem;
+      right: 2rem;
+    }
+  }
+
+  @media (max-width: 767px) {
     bottom: auto;
-    top: 2rem;
-    right: 2rem;
+    top: 1rem;
+    right: 1rem;
   }
 `;
 
@@ -47,39 +56,69 @@ const Button = styled.button`
   }
 `;
 
-export const Carousel = ({ children, perPage = 1 }) => {
-  let siema = useRef(null);
-  let carousel = useRef(null);
+const CarouselWrapper = styled.div`
+  @media (max-width: 767px) {
+    padding-left: ${(props) => props.offsetStart};
+    width: 100vw;
+    overflow: hidden;
 
-  useEffect(() => {
-    if (siema.current === null) {
-      siema.current = new Siema({
-        ...siemaConfig,
-        selector: carousel.current,
-        perPage,
-      });
+    > * {
+      overflow: visible;
     }
+  }
+`;
+
+export const Carousel = ({
+  children,
+  slidesPerView = 1,
+  slidesPerViewMob = 1,
+  spacing = 0,
+  offsetStart,
+}) => {
+  const [sliderRef, slider] = useKeenSlider({
+    ...keenConfig,
+    slidesPerView,
+    spacing,
+    breakpoints: {
+      "(max-width: 767px)": {
+        slidesPerView: slidesPerViewMob,
+      },
+    },
   });
 
   let prev = () => {
-    siema.current.prev();
+    slider.prev();
   };
 
   let next = () => {
-    siema.current.next();
+    slider.next();
   };
 
   return (
-    <Wrapper>
-      <div className="siema" ref={carousel}>
-        {children.length > 1 ? children.map((child) => child) : children}
-        {/* {children.map((child) => child)} */}
-      </div>
+    <Wrapper
+      className="keen-wrapper"
+      // use data attributes so we can create the config for our static markup
+      data-slidesperview={slidesPerView}
+      data-slidesperviewmob={slidesPerViewMob}
+      data-offsetstart={offsetStart}
+      data-spacing={spacing}
+    >
+      <CarouselWrapper offsetStart={offsetStart}>
+        <div ref={sliderRef} className="keen-slider">
+          {React.Children.map(children, (child) =>
+            React.cloneElement(
+              child,
+              { className: `keen-slider__slide` },
+              child.props.children
+            )
+          )}
+        </div>
+      </CarouselWrapper>
       <Navigation>
-        <Button onClick={() => prev()}>
+        <Button className="keen-prev" onClick={() => prev()}>
           <ArrowLeft size={18} />
         </Button>
-        <Button onClick={() => next()}>
+        <Button className="keen-next" onClick={() => next()}>
           <ArrowRight size={18} />
         </Button>
       </Navigation>
