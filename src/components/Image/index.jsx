@@ -39,7 +39,16 @@ const ImageWrapper = styled.div`
 `;
 
 export const Image = (props) => {
-  const { width, alt, src, quality, sizes } = props;
+  const {
+    width,
+    alt,
+    src,
+    quality = 80,
+    sizes,
+    height,
+    media,
+    backgroundColor,
+  } = props;
 
   const pictureEl = useRef(null);
 
@@ -68,16 +77,19 @@ export const Image = (props) => {
     return () => observer.disconnect();
   }, [pictureEl]);
 
-  let imageSizes = [0.25, 0.5, 1, 1.5, 2, 3];
+  let imageSizes = [0.25, 0.5, 1, 1.25, 1.5, 2];
   let imageTypes = ["webp", "jpeg"];
 
   let createSrcSet = ({ type, width, src }) => {
-    return imageSizes
-      .map((size) => {
-        let imageWidth = width * size;
-        return `${src}.${type}?w=${imageWidth}&qlt=${quality} ${imageWidth}w`;
-      })
-      .join(",");
+    let sizes = imageSizes.flatMap((size) => {
+      let imageWidth = width * size;
+      return imageWidth < 1920
+        ? `${src}.${type}?w=${imageWidth}&qlt=${quality} ${imageWidth}w`
+        : [];
+    });
+    sizes.push(`${src}.${type}?w=1920&qlt=${quality} 1920w`);
+
+    return sizes.join(",");
   };
 
   const isArtDirected = Array.isArray(src);
@@ -90,7 +102,14 @@ export const Image = (props) => {
   }
 
   return (
-    <ImageWrapper {...props}>
+    <ImageWrapper
+      width={width}
+      height={height}
+      backgroundColor={backgroundColor}
+      media={media}
+      isArtDirected={isArtDirected}
+      artDirectedImages={artDirectedImages}
+    >
       <div></div>
       <picture ref={pictureEl}>
         {isArtDirected &&
@@ -121,13 +140,4 @@ export const Image = (props) => {
       </picture>
     </ImageWrapper>
   );
-};
-
-Image.defaultProps = {
-  width: 480,
-  height: 480,
-  alt: "image alt",
-  quality: 80,
-  backgroundColor: "#ECECF2",
-  sizes: "(max-width: 600px) 100vw, 20vw",
 };
