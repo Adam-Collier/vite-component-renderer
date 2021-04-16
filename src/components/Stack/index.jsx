@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -15,7 +15,7 @@ const Wrapper = styled.main`
     margin-top: var(--space);
 
     @media (max-width: 767px) {
-      margin-top: calc(var(--space) / 2);
+      margin-top: calc(var(--space) * 0.75);
     }
   }
 `;

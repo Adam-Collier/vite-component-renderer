@@ -17,11 +17,22 @@ export const globalStyles = `
 
     @media (min-width: 768px){
         .main-container {
-        max-width: none;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0;
-        padding-right: 0;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .main-container .main > :not(.toolbar-container) {
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0;
         }
     }
 

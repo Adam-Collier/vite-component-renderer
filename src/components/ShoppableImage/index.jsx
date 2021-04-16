@@ -52,7 +52,6 @@ export const ShoppableImage = (props) => {
 
 ShoppableImage.defaultProps = {
   link: "/new-in",
-  text: "joggers from £24",
   width: 240,
   height: 240,
   alt: "grid item alt",
