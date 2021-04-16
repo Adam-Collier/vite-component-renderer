@@ -9,9 +9,22 @@ export const Wrapper = styled.div`
 `;
 
 const ConditionalWrapper = (props) => {
-  let { isCarousel, children, perPage } = props;
+  let {
+    isCarousel,
+    children,
+    slidesPerView,
+    slidesPerViewMob,
+    spacing,
+  } = props;
   return isCarousel ? (
-    <Carousel perPage={perPage}>{children}</Carousel>
+    <Carousel
+      slidesPerView={slidesPerView}
+      spacing={spacing}
+      slidesPerViewMob={slidesPerViewMob}
+      offsetStart="1rem"
+    >
+      {children}
+    </Carousel>
   ) : (
     children
   );
