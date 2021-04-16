@@ -9,13 +9,15 @@ const FlexWrapper = styled.div`
   flex-wrap: wrap;
 
   /* use this to emulate the gap property */
-  margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
-  width: calc(100% + var(--gap));
+  /* only works horizontally */
+  margin: calc(-1 * var(--column-gap)) 0 0 calc(-1 * var(--column-gap));
+  width: calc(100% + var(--column-gap));
 
   > * {
     flex: 1 1 ${(props) => props.wrapWidth}px;
     /* use this to emulate the gap property */
-    margin: var(--gap) 0 0 var(--gap);
+    /* only works horizontally */
+    margin: var(--column-gap) 0 0 var(--column-gap);
   }
 
   @media (max-width: 767px) {
@@ -25,19 +27,27 @@ const FlexWrapper = styled.div`
     > * {
       margin: 0;
     }
+
+    > * + * {
+      margin-top: var(--row-gap);
+    }
   }
 `;
 
 export const Flex = (props) => {
   const { children } = props;
   return (
-    <FlexWrapper {...props} style={{ "--gap": props.gap }}>
+    <FlexWrapper
+      {...props}
+      style={{ "--column-gap": props.columnGap, "--row-gap": props.rowGap }}
+    >
       {children}
     </FlexWrapper>
   );
 };
 
 Flex.defaultProps = {
-  gap: "1rem",
+  columnGap: "1rem",
+  rowGap: "0",
   wrapWidth: 200,
 };
