@@ -11,6 +11,10 @@ const Subcopy = styled.p`
   max-width: 400px;
   padding: var(--padding);
   font-size: 0.875rem;
+
+  @media (max-width: 767px) {
+    max-width: calc(100vw - 2rem);
+  }
 `;
 
 const Wrapper = styled.a`
@@ -20,12 +24,21 @@ const Wrapper = styled.a`
   --spacing: 0.5rem;
   position: relative;
   display: block;
+
+  @media (max-width: 767px) {
+    --padding: 0.75rem;
+  }
 `;
 
 const Content = styled(Stack)`
   position: absolute;
   bottom: 3rem;
   left: 3rem;
+
+  @media (max-width: 767px) {
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
 `;
 
 const Logo = styled.img`
@@ -38,10 +51,17 @@ const Logo = styled.img`
   height: 100%;
   object-fit: contain;
   object-position: left;
+
+  @media (max-width: 767px) {
+    width: 70%;
+    max-width: 380px;
+    max-height: 100px;
+  }
 `;
 
 export const HeroBanner = (props) => {
   const {
+    className,
     buttonText,
     link,
     logo,
@@ -66,6 +86,7 @@ export const HeroBanner = (props) => {
     <Wrapper
       href={link}
       style={noContentBackground && { ...noBackgroundStyles }}
+      className={className}
     >
       <Image {...props} />
       <Content space="var(--spacing)">
