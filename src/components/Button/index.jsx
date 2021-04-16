@@ -6,25 +6,23 @@ const ButtonBase = styled.a`
   border-radius: 3px;
   overflow: hidden;
   width: fit-content;
-
-  button {
-    border: 1px solid var(--primary-black);
-    padding: 0.5rem 1rem;
-    background: inherit;
-    border-radius: inherit;
-    color: inherit;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed",
-      "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed",
-      "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold",
-      "Helvetica Neue", "Oswald", Arial, sans-serif;
-    font-weight: 400;
-    font-stretch: condensed;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    line-height: 1.7;
-  }
+  border: 1px solid var(--primary-black);
+  padding: 0.5rem 1rem;
+  background: inherit;
+  border-radius: var(--border-radius);
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed",
+    "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed",
+    "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold",
+    "Helvetica Neue", "Oswald", Arial, sans-serif;
+  font-weight: 400;
+  font-stretch: condensed;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  text-decoration: none;
 `;
 
 const FillButton = styled(ButtonBase)`
@@ -47,7 +45,7 @@ const OutlineButton = styled(ButtonBase)`
   }
 `;
 
-export const Button = ({ text, link, variant }) => {
+export const Button = ({ text, link, variant, className, onClick }) => {
   let Component;
 
   if (variant === "fill") {
@@ -59,8 +57,13 @@ export const Button = ({ text, link, variant }) => {
   }
 
   return (
-    <Component href={link}>
-      <button>{text}</button>
+    <Component
+      href={link}
+      as={link ? "a" : "button"}
+      className={className}
+      onClick={onClick}
+    >
+      {text}
     </Component>
   );
 };
