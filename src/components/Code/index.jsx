@@ -1,81 +1,80 @@
-import React from "react";
-import { renderToString, renderToStaticMarkup } from "react-dom/server";
-import { ServerStyleSheet, StyleSheetManager } from "styled-components";
-import App from "../../App";
+import React, { useState } from "react";
+import styled from "styled-components";
 import { globalStyles } from "../../styles/global";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import prismMarkup from "react-syntax-highlighter/dist/esm/languages/prism/markup";
+import { Button } from "../Button";
 import theme from "./theme";
+
+import { lazyLoading } from "../../template-scripts/lazyloading";
+import { keenSlider } from "../../template-scripts/keen-slider";
+import { keenSliderCSS } from "../../template-scripts/keen-slider-css";
 
 import prettier from "https://unpkg.com/prettier@2.2.1/esm/standalone.mjs";
 import parserHTML from "https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs";
+import parserCSS from "https://unpkg.com/prettier@2.2.1/esm/parser-postcss.mjs";
+import parserBabel from "https://unpkg.com/prettier@2.2.1/esm/parser-babel.mjs";
+
+import { decodeHtmlEntities } from "../../utils/decode-html-entities";
+
+const Wrapper = styled.div`
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+`;
+
+const Highlighter = styled(SyntaxHighlighter)`
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledButton = styled(Button)`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+`;
 
 export const Code = () => {
-  // const sheet = new ServerStyleSheet();
-  // const markup = renderToString(sheet.collectStyles(<App />));
-  // const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
-  // console.log(styleTags);
+  const [html, setHtml] = useState("");
 
-  const sheet = new ServerStyleSheet();
+  let createHTML = () => /*html*/ `
+      <style>
+        ${keenSliderCSS()}
+      </style>
+      <style>
+        ${globalStyles}
+      </style>
+      ${document.querySelector("[data-styled]").outerHTML} 
+      ${decodeHtmlEntities(document.querySelector(".container").outerHTML)}
+      ${lazyLoading()}
+      ${keenSlider()}
+      `;
 
-  try {
-    console.log(renderToStaticMarkup(<App />));
-    const markup = renderToString(
-      <StyleSheetManager sheet={sheet.instance}>
-        <App />
-      </StyleSheetManager>
-    );
-    const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
+  let addToHighlighter = () => {
+    let createdHTML = createHTML();
 
-    const outputHTML = `
-    <style>
-      ${globalStyles}
-    </style>
-    ${styleTags}
-    ${markup}
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        let lazyImages = Array.from(document.querySelectorAll('.container picture'));
+    let formattedHTML = prettier.format(createdHTML, {
+      parser: "html",
+      plugins: [parserHTML, parserCSS, parserBabel],
+    });
 
-        let callback = (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              let imgEl = entry.target;
-              let sources = Array.from(imgEl.parentNode.querySelectorAll('source'));
-              sources.forEach((source) => {
-                source.srcset = source.dataset.srcset;
-              });
+    setHtml(formattedHTML);
+  };
 
-              lazyImageObserver.unobserve(imgEl);
-            }
-          });
-        }
+  SyntaxHighlighter.registerLanguage("html", prismMarkup);
 
-        const options = {
-          threshold: 0,
-          root: null,
-        };
-
-        let lazyImageObserver = new IntersectionObserver(callback, options);
-
-        lazyImages.forEach(function (lazyImage) {
-          lazyImageObserver.observe(lazyImage.querySelector("img"));
-        });
-      });
-    </script>
-  `;
-
-    return (
-      <SyntaxHighlighter language="html" style={theme}>
-        {prettier.format(outputHTML, {
-          parser: "html",
-          plugins: [parserHTML],
-        })}
-      </SyntaxHighlighter>
-    );
-  } catch (error) {
-    // handle error
-    console.error(error);
-  } finally {
-    sheet.seal();
-  }
+  return (
+    <Wrapper>
+      <Highlighter language="html" style={theme}>
+        {html}
+      </Highlighter>
+      <StyledButton
+        text="Create HTML"
+        variant="fill"
+        onClick={addToHighlighter}
+      />
+    </Wrapper>
+  );
 };
