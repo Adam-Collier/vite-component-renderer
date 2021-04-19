@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { globalStyles } from "../../styles/global";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import prismMarkup from "react-syntax-highlighter/dist/esm/languages/prism/markup";
 import { Button } from "../Button";
-import theme from "./theme";
+import { Copy, Loader, Check } from "react-feather";
 
 import { lazyLoading } from "../../template-scripts/lazyloading";
 import { keenSlider } from "../../template-scripts/keen-slider";
@@ -15,63 +13,57 @@ import parserHTML from "https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs";
 import parserCSS from "https://unpkg.com/prettier@2.2.1/esm/parser-postcss.mjs";
 import parserBabel from "https://unpkg.com/prettier@2.2.1/esm/parser-babel.mjs";
 
+import { copyToClipboard } from "../../utils/copy-to-clipboard";
 import { decodeHtmlEntities } from "../../utils/decode-html-entities";
+import { delay } from "../../utils/async-delay";
 
 const Wrapper = styled.div`
   position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100px;
-  height: 100px;
-`;
-
-const Highlighter = styled(SyntaxHighlighter)`
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledButton = styled(Button)`
-  position: absolute;
   bottom: 1rem;
   right: 1rem;
 `;
 
-export const Code = () => {
-  const [html, setHtml] = useState("");
+const StyledButton = styled(Button)``;
 
-  let createHTML = () => /*html*/ `
+export const Code = () => {
+  const [icon, setIcon] = useState(Copy);
+  const [copied, setCopied] = useState(false);
+
+  let createHTML = async () => /*html*/ `
       <style>
         ${keenSliderCSS()}
       </style>
       <style>
         ${globalStyles}
       </style>
-      ${document.querySelector("[data-styled]").outerHTML} 
+      ${document.querySelector("[data-styled]").outerHTML}
       ${decodeHtmlEntities(document.querySelector(".container").outerHTML)}
       ${lazyLoading()}
       ${keenSlider()}
       `;
 
-  let addToHighlighter = () => {
-    let createdHTML = createHTML();
+  let addToHighlighter = async () => {
+    setIcon(Loader);
 
-    let formattedHTML = prettier.format(createdHTML, {
+    let createdHTML = await createHTML();
+    let formattedHTML = await prettier.format(createdHTML, {
       parser: "html",
       plugins: [parserHTML, parserCSS, parserBabel],
     });
 
-    setHtml(formattedHTML);
+    copyToClipboard(formattedHTML);
+    setIcon(Check);
+    setCopied(true);
+    await delay(2000);
+    setIcon(Copy);
+    setCopied(false);
   };
-
-  SyntaxHighlighter.registerLanguage("html", prismMarkup);
 
   return (
     <Wrapper>
-      <Highlighter language="html" style={theme}>
-        {html}
-      </Highlighter>
       <StyledButton
-        text="Create HTML"
+        icon={icon}
+        text={copied ? "Copied!" : "Copy to Clipboard"}
         variant="fill"
         onClick={addToHighlighter}
       />
