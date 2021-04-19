@@ -1,5 +1,5 @@
-import React from "react"
-import styled, {css} from "styled-components"
+import React from "react";
+import styled, { css } from "styled-components";
 
 const LayoutStyles = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ const LayoutStyles = styled.div`
   max-width: 1440px;
   width: 100%;
   align-items: center;
-  flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
+  flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
   flex-wrap: wrap;
 
   > div {
@@ -20,7 +20,7 @@ const LayoutStyles = styled.div`
     }
 
     ${(props) =>
-      props.layout === 'contrast' &&
+      props.layout === "contrast" &&
       css`
         > div {
           width: 50%;
@@ -32,7 +32,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'overlap' &&
+      props.layout === "overlap" &&
       css`
         padding: 0 10%;
         align-items: flex-start;
@@ -52,7 +52,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'overlap' &&
+      props.layout === "overlap" &&
       props.reverse &&
       css`
         > div:first-of-type {
@@ -68,7 +68,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'sidebyside' &&
+      props.layout === "sidebyside" &&
       css`
         padding: 0 5%;
 
@@ -82,7 +82,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'padded' &&
+      props.layout === "padded" &&
       css`
         > div {
           width: 100%;
@@ -93,7 +93,7 @@ const LayoutStyles = styled.div`
 
   @media (max-width: 767px) {
     ${(props) =>
-      props.layout === 'contrast' &&
+      props.layout === "contrast" &&
       css`
         padding: 0 2rem;
 
@@ -105,7 +105,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'overlap' &&
+      props.layout === "overlap" &&
       css`
         align-items: flex-start;
 
@@ -124,7 +124,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'overlap' &&
+      props.layout === "overlap" &&
       props.reverse &&
       css`
         > div:last-of-type {
@@ -140,7 +140,7 @@ const LayoutStyles = styled.div`
       `};
 
     ${(props) =>
-      props.layout === 'sidebyside' &&
+      props.layout === "sidebyside" &&
       css`
         > div:first-of-type {
           width: 90%;
@@ -154,11 +154,10 @@ const LayoutStyles = styled.div`
   }
 `;
 
-export const ImageRow = ({children, layout, reverse}) => {
-
-    return (
-      <LayoutStyles layout={layout} reverse={reverse}>
-          {children}
-      </LayoutStyles>
-    );
-}
+export const ImageRow = ({ children, layout, reverse }) => {
+  return (
+    <LayoutStyles layout={layout} reverse={reverse}>
+      {children}
+    </LayoutStyles>
+  );
+};
