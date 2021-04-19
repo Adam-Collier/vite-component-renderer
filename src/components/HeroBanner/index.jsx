@@ -19,8 +19,6 @@ const Subcopy = styled.p`
 
 const Wrapper = styled.a`
   --padding: 1rem;
-  --color: var(--primary-white);
-  --background: var(--primary-black);
   --spacing: 0.5rem;
   position: relative;
   display: block;
@@ -68,6 +66,8 @@ export const HeroBanner = (props) => {
     subcopy,
     noContentBackground,
     noLogoBackground,
+    contentBackground,
+    contentColor,
   } = props;
 
   let noBackgroundStyles = {
@@ -82,11 +82,20 @@ export const HeroBanner = (props) => {
     "--padding": "none",
   };
 
+  let defaultStyles = {
+    "--background": contentBackground || "var(--primary-black)",
+    "--color": contentColor || "var(--primary-white)",
+  };
+
   return (
     <Wrapper
       href={link}
-      style={noContentBackground && { ...noBackgroundStyles }}
+      style={
+        noContentBackground ? { ...noBackgroundStyles } : { ...defaultStyles }
+      }
       className={className}
+      contentColor={contentColor}
+      contentBackground={contentBackground}
     >
       <Image {...props} />
       <Content space="var(--spacing)">
