@@ -3,6 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { Blogpost } from "../Blogpost";
 import { Carousel } from "../Carousel";
+import useSWR from "swr";
+import { fetcher } from "../../utils/fetcher";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -32,25 +34,16 @@ const ConditionalWrapper = (props) => {
 
 export const Blogposts = (props) => {
   const { postIds } = props;
-  const [data, setData] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   let stringifiedIds = postIds.join(",");
 
-  useEffect(() => {
-    const getWpData = async () => {
-      const result = await axios(
-        `https://www.missguided.co.uk/babezine/wp-json/wp/v2/posts?include=${stringifiedIds}&_fields=link,title,excerpt,_links,_embedded&_embed`
-      );
+  const { data, error } = useSWR(
+    `https://www.missguided.co.uk/babezine/wp-json/wp/v2/posts?include=${stringifiedIds}&_fields=link,title,excerpt,_links,_embedded&_embed`,
+    fetcher
+  );
 
-      setData(result.data);
-      setIsLoading(false);
-    };
-
-    getWpData();
-  }, []);
-
-  if (isLoading) return <p>Loading...</p>;
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
 
   return (
     <Wrapper>

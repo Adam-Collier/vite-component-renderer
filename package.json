@@ -9,15 +9,13 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@reach/router": "^1.3.4",
     "axios": "^0.21.1",
     "keen-slider": "^5.4.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-feather": "^2.0.9",
-    "react-syntax-highlighter": "^15.4.3",
-    "siema": "^1.5.1",
     "styled-components": "^5.2.1",
+    "swr": "^0.5.5",
     "vite-plugin-react-svg": "^0.2.0"
   },
   "devDependencies": {
