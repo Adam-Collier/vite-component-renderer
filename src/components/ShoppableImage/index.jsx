@@ -13,10 +13,10 @@ const Wrapper = styled.div`
   p {
     font-size: 1rem;
     position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
+    bottom: 1rem;
+    left: 1rem;
     line-height: 1.5;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.75rem;
     background: #000;
     color: #fff;
     margin-bottom: 0;
@@ -56,4 +56,5 @@ ShoppableImage.defaultProps = {
   height: 240,
   alt: "grid item alt",
   src: "https://media.missguided.com/i/missguided/playboy_storybook_default",
+  sizes: "(max-width: 767px) 207px, 298px",
 };

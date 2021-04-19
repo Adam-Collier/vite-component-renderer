@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonBase = styled.a`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   border-radius: 3px;
   overflow: hidden;
   width: fit-content;
   border: 1px solid var(--primary-black);
-  padding: 0.5rem 1rem;
+  padding: ${(props) => (props.text ? `0.75rem 1rem` : `1rem`)};
   background: inherit;
   border-radius: var(--border-radius);
   color: inherit;
@@ -21,8 +22,16 @@ const ButtonBase = styled.a`
   font-stretch: condensed;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  line-height: 1.7;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  svg {
+    display: block;
+    margin-right: ${(props) => props.text && props.icon && "0.35rem"};
+  }
 `;
 
 const FillButton = styled(ButtonBase)`
@@ -45,8 +54,9 @@ const OutlineButton = styled(ButtonBase)`
   }
 `;
 
-export const Button = ({ text, link, variant, className, onClick }) => {
+export const Button = ({ text, link, variant, className, onClick, icon }) => {
   let Component;
+  let Icon = icon;
 
   if (variant === "fill") {
     Component = FillButton;
@@ -62,8 +72,11 @@ export const Button = ({ text, link, variant, className, onClick }) => {
       as={link ? "a" : "button"}
       className={className}
       onClick={onClick}
+      icon
+      text
     >
-      {text}
+      {icon && <Icon size={16} />}
+      {text && text}
     </Component>
   );
 };

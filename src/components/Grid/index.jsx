@@ -6,11 +6,11 @@ const Wrapper = styled.div`
   grid-gap: ${(props) => props.gridGap};
   grid-template-columns: repeat(
     auto-fill,
-    minmax(min(${(props) => props.maxWidth}px, 40%), 1fr)
+    minmax(min(${(props) => props.wrapWidth}px, 40%), 1fr)
   );
 
   @media (max-width: 767px) {
-    grid-gap: 0;
+    grid-gap: ${(props) => props.gridGapMob};
   }
 `;
 
@@ -21,5 +21,5 @@ export const Grid = (props) => {
 
 Grid.defaultProps = {
   gridGap: "1rem",
-  maxWidth: 340,
+  wrapWidth: 340,
 };

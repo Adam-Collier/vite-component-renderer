@@ -5,8 +5,10 @@ const FlexWrapper = styled.div`
   display: flex;
   width: 100%;
   position: relative;
-  flex-direction: row;
+  flex-direction: ${(props) => props.direction || "row"};
   flex-wrap: wrap;
+  align-items: ${(props) => props.alignItems};
+  justify-content: ${(props) => props.justifyContent};
 
   /* use this to emulate the gap property */
   /* only works horizontally */
@@ -14,7 +16,7 @@ const FlexWrapper = styled.div`
   width: calc(100% + var(--column-gap));
 
   > * {
-    flex: 1 1 ${(props) => props.wrapWidth}px;
+    flex: ${(props) => props.wrapWidth && `1 1 ${props.wrapWidth}px`};
     /* use this to emulate the gap property */
     /* only works horizontally */
     margin: var(--column-gap) 0 0 var(--column-gap);
@@ -35,10 +37,23 @@ const FlexWrapper = styled.div`
 `;
 
 export const Flex = (props) => {
-  const { children } = props;
+  const {
+    children,
+    rowGap,
+    columnGap,
+    direction = "row",
+    alignItems,
+    justifyContent,
+    wrapWidth,
+  } = props;
   return (
     <FlexWrapper
-      {...props}
+      rowGap={rowGap}
+      columnGap={columnGap}
+      alignItems={alignItems}
+      justifyContent={justifyContent}
+      direction={direction}
+      wrapWidth={wrapWidth}
       style={{ "--column-gap": props.columnGap, "--row-gap": props.rowGap }}
     >
       {children}
@@ -49,5 +64,4 @@ export const Flex = (props) => {
 Flex.defaultProps = {
   columnGap: "1rem",
   rowGap: "0",
-  wrapWidth: 200,
 };
