@@ -77,7 +77,7 @@ export const Image = (props) => {
     return () => observer.disconnect();
   }, [pictureEl]);
 
-  let imageSizes = [0.25, 0.5, 1, 1.25, 1.5, 2];
+  let imageSizes = [0.25, 0.5, 1, 1.25, 1.5, 2, 2.5];
   let imageTypes = ["webp", "jpeg"];
 
   let createSrcSet = ({ type, width, src }) => {
@@ -87,7 +87,9 @@ export const Image = (props) => {
         ? `${src}.${type}?w=${imageWidth}&qlt=${quality} ${imageWidth}w`
         : [];
     });
-    sizes.push(`${src}.${type}?w=1920&qlt=${quality} 1920w`);
+    if (!isArtDirected) {
+      sizes.push(`${src}.${type}?w=1920&qlt=${quality} 1920w`);
+    }
 
     return sizes.join(",");
   };
@@ -118,7 +120,11 @@ export const Image = (props) => {
               <source
                 key={index}
                 type={`image/${type}`}
-                data-srcset={createSrcSet({ type, ...image })}
+                data-srcset={createSrcSet({
+                  type,
+                  ...image,
+                  isArtDirected: true,
+                })}
                 sizes={sizes}
                 media={image.media}
               />
@@ -128,7 +134,12 @@ export const Image = (props) => {
           <source
             key={index}
             type={`image/${type}`}
-            data-srcset={createSrcSet({ type, width, src: defaultImage })}
+            data-srcset={createSrcSet({
+              type,
+              width,
+              src: defaultImage,
+              isArtDirected: false,
+            })}
             sizes={sizes}
           />
         ))}
@@ -140,4 +151,8 @@ export const Image = (props) => {
       </picture>
     </ImageWrapper>
   );
+};
+
+Image.defaultProps = {
+  backgroundColor: "#ECECF2",
 };
