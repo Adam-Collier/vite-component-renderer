@@ -36,15 +36,34 @@ export const globalStyles = `
         }
     }
 
-    p {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        line-height: 1.75;
-        font-size: 1rem;
-        font-weight: 400;
-        margin: 0;
+    html {
+        -webkit-text-size-adjust: 100%;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
     }
 
-    body {
+    body{
+        text-rendering: optimizeSpeed;
+    }
+
+    @-moz-document url-prefix() {
+        body {
+            font-weight: lighter !important;
+        }
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
         margin: 0;
+        color: var(--primary-black);
     }
 `;
