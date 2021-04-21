@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { Image } from "../Image";
 import { Button } from "../Button";
 import { Stack } from "../Stack";
+import { Text } from "../Text";
 
-const Subcopy = styled.p`
+const Subcopy = styled(Text)`
   border-radius: var(--border-radius);
   background: var(--background);
   color: var(--color);
-  max-width: 400px;
   padding: var(--padding);
-  font-size: 0.875rem;
+  max-width: 400px;
 
   @media (max-width: 767px) {
     max-width: calc(100vw - 2rem);

@@ -1,26 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import { decodeHtmlEntities } from "../../utils/decode-html-entities";
 import styled from "styled-components";
+import { Text } from "../Text";
 
 export const Wrapper = styled.a`
   width: 100%;
   text-decoration: none;
   color: inherit;
   display: block;
-`;
 
-const Title = styled.h3`
-  font-size: 1rem;
-  font-weight: 600;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  margin: 0 0 0.5rem;
-  line-height: 1.3;
-`;
-
-const Subcopy = styled.p`
-  font-size: 0.875rem;
-  line-height: 1.5;
-  font-weight: 400;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -97,8 +88,12 @@ export const Blogpost = ({ data, className }) => {
           />
         </picture>
       </ImageWrapper>
-      <Title>{data.title.rendered}</Title>
-      <Subcopy>{stripAndParse(data.excerpt.rendered)}</Subcopy>
+      <Text as="h3" lineHeight={1.3} weight={600} spacing="0.25rem">
+        {data.title.rendered}
+      </Text>
+      <Text size="sm" lineHeight={1.5} weight={400}>
+        {stripAndParse(data.excerpt.rendered)}
+      </Text>
     </Wrapper>
   );
 };
