@@ -118,7 +118,7 @@ function App() {
         <Row maxWidth={1240}>
           <Flex wrapWidth={180}>
             <ShoppableImage
-              src="https://media.missguided.com/i/missguided/nails_inc"
+              src="https://media.missguided.com/i/missguided/new_in_21_04_21"
               height={300}
               link="/new-in"
               text="shop new in"
@@ -127,7 +127,7 @@ function App() {
               src="https://media.missguided.com/i/missguided/nails_inc"
               height={300}
               link="/beauty/beauty-brands/nails-inc"
-              text="shop cloud nine"
+              text="shop Nails inc"
             />
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/cloud_nine"
@@ -136,7 +136,7 @@ function App() {
               text="shop cloud nine"
             />
             <ShoppableImage
-              src="https://media.missguided.com/i/missguided/nails_inc"
+              src="https://media.missguided.com/i/missguided/rimmel_21_04_21"
               height={300}
               link="/beauty/beauty-brands/rimmel"
               text="shop rimmel"
