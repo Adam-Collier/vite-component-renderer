@@ -14,6 +14,7 @@ export const lazyLoading = () =>
             let sources = Array.from(
               imgEl.parentNode.querySelectorAll("source")
             );
+            imgEl.classList.add("loaded");
             sources.forEach((source) => {
               source.srcset = source.dataset.srcset;
             });

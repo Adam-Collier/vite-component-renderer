@@ -14,6 +14,14 @@ const ImageWrapper = styled.div`
     height: 100%;
     object-fit: cover;
     max-width: none;
+    opacity: 0;
+    transform: translateZ(0);
+    transition: opacity 0.5s linear;
+    will-change: opacity;
+  }
+
+  .loaded {
+    opacity: 1;
   }
 
   div {
@@ -59,6 +67,7 @@ export const Image = (props) => {
           let sources = Array.from(
             pictureEl.current.querySelectorAll("source")
           );
+          pictureEl.current.lastChild.classList.add("loaded");
           sources.forEach((source) => {
             source.srcset = source.dataset.srcset;
           });
@@ -69,6 +78,7 @@ export const Image = (props) => {
     const options = {
       threshold: 0,
       root: null,
+      rootMargin: "-50px 0px 0px 0px",
     };
 
     const observer = new IntersectionObserver(callback, options);

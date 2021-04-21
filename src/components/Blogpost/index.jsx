@@ -26,6 +26,14 @@ const ImageWrapper = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transform: translateZ(0);
+    transition: opacity 0.5s linear;
+    will-change: opacity;
+  }
+
+  .loaded {
+    opacity: 1;
   }
 `;
 
@@ -46,6 +54,7 @@ export const Blogpost = ({ data, className }) => {
           let sources = Array.from(
             pictureEl.current.querySelectorAll("source")
           );
+          pictureEl.current.lastChild.classList.add("loaded");
           sources.forEach((source) => {
             source.srcset = source.dataset.srcset;
           });
