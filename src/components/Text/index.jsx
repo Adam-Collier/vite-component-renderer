@@ -14,11 +14,11 @@ const TextElement = styled.p`
   --text-xs: 12px;
   --text-xxs: 10px;
 
-  line-height: ${(props) => (props.heading ? 1.3 : 1.75)};
-  font-weight: ${(props) => (props.heading ? 600 : 400)};
+  line-height: ${(props) => (props.heading ? 1.3 : props.lineHeight)};
+  font-weight: ${(props) => (props.heading ? 600 : props.weight)};
   font-family: ${(props) =>
     !props.heading && `"Helvetica Neue", Arial, sans-serif`};
-  margin: 0;
+  color: inherit;
 
   ${(props) =>
     props.heading &&
@@ -27,14 +27,13 @@ const TextElement = styled.p`
         "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed",
         "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold",
         "Helvetica Neue", "Oswald", Arial, sans-serif;
-      font-weight: 600;
       font-stretch: condensed;
       text-transform: uppercase;
       letter-spacing: 0.02em;
     `}
 
   & + * {
-    margin-top: 1.45rem;
+    margin-top: ${(props) => props.spacing || "1.45rem"};
   }
 
   @media (max-width: 767px) {
@@ -53,12 +52,26 @@ const TextElement = styled.p`
 `;
 
 export const Text = (props) => {
-  const { element, children, size, align, heading } = props;
+  const {
+    element,
+    children,
+    size,
+    align,
+    heading,
+    className,
+    lineHeight,
+    weight,
+    spacing,
+  } = props;
   return (
     <TextElement
       as={element}
       style={{ fontSize: `var(--text-${size})`, textAlign: align }}
       heading={heading}
+      className={className}
+      lineHeight={lineHeight}
+      weight={weight}
+      spacing={spacing}
     >
       {children}
     </TextElement>
@@ -67,8 +80,9 @@ export const Text = (props) => {
 
 Text.defaultProps = {
   element: "p",
-  type: "header",
   fontSize: "1rem",
   size: "base",
   align: "left",
+  weight: 500,
+  lineHeight: 1.75,
 };
