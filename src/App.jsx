@@ -56,7 +56,7 @@ function App() {
       <Stack space="6rem" className="container">
         <Carousel>
           <HeroBanner
-            link="/clothes"
+            link="/beauty"
             src={[
               "https://media.missguided.com/i/missguided/missguided_beauty_hero",
               {
@@ -69,7 +69,7 @@ function App() {
             ]}
           />
           <HeroBanner
-            link="/new-in"
+            link="/beauty/beauty-brands/bondi-sands"
             logo="https://media.missguided.com/i/missguided/bondi_sands_logo"
             src={[
               "https://media.missguided.com/i/missguided/bondi_sands_hero",
@@ -85,7 +85,7 @@ function App() {
             noContentBackground
           />
           <HeroBanner
-            link="/beauty-love-peace"
+            link="/beauty/beauty-brands/love-beauty-and-planet"
             logo="https://media.missguided.com/i/missguided/love_beauty_planet_logo"
             src={[
               "https://media.missguided.com/i/missguided/love_beauty_planet_hero",
@@ -104,12 +104,7 @@ function App() {
           />
         </Carousel>
         <Row maxWidth={640}>
-          <Flex
-            rowGap="1.5rem"
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
+          <Flex gap="1.5rem" direction="column" alignItems="center">
             <Text element="p" size="base" align="center">
               We don’t just do clothes. Make Missguided your number 1 spot for
               all things beauty. Level up your cosmetics collection with makeup,
@@ -120,32 +115,36 @@ function App() {
             <Button link="/beauty" text="shop all beauty" variant="fill" />
           </Flex>
         </Row>
-        <Row maxWidth={1240} noPadding>
-          <Flex wrapWidth={200}>
+        <Row maxWidth={1240}>
+          <Flex wrapWidth={180}>
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/nails_inc"
               height={300}
+              link="/new-in"
               text="shop new in"
             />
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/nails_inc"
               height={300}
+              link="/beauty/beauty-brands/nails-inc"
               text="shop cloud nine"
             />
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/cloud_nine"
               height={300}
+              link="/beauty/beauty-brands/cloud-nine"
               text="shop cloud nine"
             />
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/nails_inc"
               height={300}
+              link="/beauty/beauty-brands/rimmel"
               text="shop rimmel"
             />
           </Flex>
         </Row>
         <Row noPadding>
-          <Flex rowGap="2rem" wrapWidth={200}>
+          <Flex gap="2rem" wrapWidth={200}>
             <BabezineCard />
             <Blogposts
               postIds={[79905, 78697, 79178, 79335, 80981]}
@@ -169,8 +168,8 @@ function App() {
             lipsticks from Inglot, plumping glosses and matching liners.
           </Text>
         </Row>
-        <Row maxWidth={1240} noPadding>
-          <Flex wrapWidth={200}>
+        <Row maxWidth={1240}>
+          <Flex wrapWidth={180}>
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/category_face"
               width={298}
@@ -205,7 +204,7 @@ function App() {
           <Text element="h3" size="2xl" align="center" heading>
             SHOP BY BRAND
           </Text>
-          <Grid wrapWidth={200} gridGap="1rem">
+          <Grid wrapWidth={200} gap="1rem">
             <ShoppableImage
               backgroundColor="none"
               src="https://media.missguided.com/i/missguided/iconic_logo"
