@@ -49,8 +49,7 @@ function App() {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src:
-                  "https://media.missguided.com/i/missguided/missguided_beauty_mobile",
+                src: "https://media.missguided.com/i/missguided/missguided_beauty_mobile",
               },
             ]}
             subcopy="Missguided Beauty is now live. Make room in your makeup bag for affordable, vegan and cruelty-free makeup that will leave you with a flawless finish."
@@ -65,8 +64,7 @@ function App() {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src:
-                  "https://media.missguided.com/i/missguided/bondi_sands_mobile",
+                src: "https://media.missguided.com/i/missguided/bondi_sands_mobile",
               },
             ]}
             subcopy="Introducing the latest innovation in self tanning, pure self tanning range by BONDI SANDS. Clean, simple, transparent, the iconic Australian tan."
@@ -82,8 +80,7 @@ function App() {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src:
-                  "https://media.missguided.com/i/missguided/love_beauty_planet_mobile",
+                src: "https://media.missguided.com/i/missguided/love_beauty_planet_mobile",
               },
             ]}
             subcopy="Introducing the latest innovation in self tanning, pure self tanning range by BONDI SANDS. Clean, simple, transparent, the iconic Australian tan."
