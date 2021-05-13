@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../Button";
-import { Stack } from "../Stack";
-import { Text } from "../Text";
+import { Button, Stack, Text } from "vite-storybook";
 
-import BabezineLogo from "../../logos/babezine_logo.svg?component";
+import BabezineLogo from "./babezine_logo.svg?component";
 
 const Card = styled(Stack)`
   max-width: calc(100vw - 2rem);
@@ -18,7 +16,7 @@ const Card = styled(Stack)`
 
 export const BabezineCard = () => {
   return (
-    <Card space="1rem">
+    <Card spacing={1}>
       <Text size="md">from the</Text>
       <BabezineLogo />
       <Text>
