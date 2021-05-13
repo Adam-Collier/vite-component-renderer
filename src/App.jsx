@@ -1,35 +1,20 @@
 import React from "react";
 import "./App.css";
-import styled, { css, createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { globalStyles } from "./styles/global";
-import { Carousel } from "./components/Carousel";
-import { Stack } from "./components/Stack";
-import { HeroBanner } from "./components/HeroBanner";
-import { Flex } from "./components/Flex";
-import { Grid } from "./components/Grid";
-import { ShoppableImage } from "./components/ShoppableImage";
-import { Blogposts } from "./components/Blogposts";
 import { BabezineCard } from "./components/BabezineCard";
-import { Text } from "./components/Text";
-import { Button } from "./components/Button";
-
-const Row = styled.section`
-  ${(props) =>
-    props.flex &&
-    css`
-      display: flex;
-      justify-content: center;
-    `}
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-
-  max-width: ${(props) => (props.maxWidth ? `${props.maxWidth}px` : "none")};
-
-  @media (max-width: 767px) {
-    padding: ${(props) => !props.noPadding && `0 1rem`};
-  }
-`;
+import {
+  Blogposts,
+  Button,
+  Carousel,
+  Flex,
+  Grid,
+  HeroBanner,
+  Row,
+  ShoppableImage,
+  Stack,
+  Text,
+} from "vite-storybook";
 
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
@@ -53,10 +38,11 @@ function App() {
     <>
       <GlobalStyle />
       {/* the container className is important for the static lazyloading script */}
-      <Stack space="6rem" className="container">
+      <Stack spacing={6} className="container">
         <Carousel>
           <HeroBanner
             link="/beauty"
+            logo="https://media.missguided.com/i/missguided/missguided_beauty_1"
             src={[
               "https://media.missguided.com/i/missguided/missguided_beauty_hero",
               {
@@ -67,6 +53,8 @@ function App() {
                   "https://media.missguided.com/i/missguided/missguided_beauty_mobile",
               },
             ]}
+            subcopy="Missguided Beauty is now live. Make room in your makeup bag for affordable, vegan and cruelty-free makeup that will leave you with a flawless finish."
+            alt="Missguided Beauty Hero"
           />
           <HeroBanner
             link="/beauty/beauty-brands/bondi-sands"
@@ -83,6 +71,7 @@ function App() {
             ]}
             subcopy="Introducing the latest innovation in self tanning, pure self tanning range by BONDI SANDS. Clean, simple, transparent, the iconic Australian tan."
             noContentBackground
+            alt="Bondi Sands Hero"
           />
           <HeroBanner
             link="/beauty/beauty-brands/love-beauty-and-planet"
@@ -101,10 +90,11 @@ function App() {
             noLogoBackground
             contentBackground="#f4afc2"
             contentColor="var(--primary-black)"
+            alt="Love Beauty and Planet Hero"
           />
         </Carousel>
-        <Row maxWidth={640}>
-          <Flex gap="1.5rem" direction="column" alignItems="center">
+        <Row maxWidth="sm">
+          <Flex gap={1.5} direction="column" alignItems="center">
             <Text element="p" size="base" align="center">
               We don’t just do clothes. Make Missguided your number 1 spot for
               all things beauty. Level up your cosmetics collection with makeup,
@@ -115,7 +105,7 @@ function App() {
             <Button link="/beauty" text="shop all beauty" variant="fill" />
           </Flex>
         </Row>
-        <Row maxWidth={1240}>
+        <Row maxWidth="lg">
           <Flex wrapWidth={180}>
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/new_in_21_04_21"
@@ -144,7 +134,7 @@ function App() {
           </Flex>
         </Row>
         <Row noPadding>
-          <Flex gap="2rem" wrapWidth={200}>
+          <Flex gap={2} wrapWidth={200}>
             <BabezineCard />
             <Blogposts
               postIds={[79905, 78697, 79178, 79335, 80981]}
@@ -155,7 +145,7 @@ function App() {
             />
           </Flex>
         </Row>
-        <Row maxWidth={640}>
+        <Row maxWidth="sm">
           <Text element="h3" size="2xl" align="center" heading>
             SHOP BY CATEGORY
           </Text>
@@ -168,7 +158,7 @@ function App() {
             lipsticks from Inglot, plumping glosses and matching liners.
           </Text>
         </Row>
-        <Row maxWidth={1240}>
+        <Row maxWidth="lg">
           <Flex wrapWidth={180}>
             <ShoppableImage
               src="https://media.missguided.com/i/missguided/category_face"
@@ -200,11 +190,11 @@ function App() {
             />
           </Flex>
         </Row>
-        <Row maxWidth={840}>
+        <Row maxWidth="md">
           <Text element="h3" size="2xl" align="center" heading>
             SHOP BY BRAND
           </Text>
-          <Grid wrapWidth={200} gap="1rem">
+          <Grid wrapWidth={200} gap={1}>
             <ShoppableImage
               backgroundColor="none"
               src="https://media.missguided.com/i/missguided/iconic_logo"
