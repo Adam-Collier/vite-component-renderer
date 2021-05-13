@@ -6,7 +6,6 @@ import { Copy, Loader, Check } from "react-feather";
 
 import { lazyLoading } from "../../template-scripts/lazyloading";
 import { keenSlider } from "../../template-scripts/keen-slider";
-import { keenSliderCSS } from "../../template-scripts/keen-slider-css";
 
 import prettier from "https://unpkg.com/prettier@2.2.1/esm/standalone.mjs";
 import parserHTML from "https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs";
@@ -30,9 +29,6 @@ export const Code = () => {
   const [copied, setCopied] = useState(false);
 
   let createHTML = async () => /*html*/ `
-      <style>
-        ${keenSliderCSS()}
-      </style>
       <style>
         ${globalStyles}
       </style>
