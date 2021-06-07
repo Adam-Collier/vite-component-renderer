@@ -1,7 +1,9 @@
 export const globalStyles = `
-    :root{
-      --primary-black: #141414;
-      --primary-white: #FFFFFF;
+    :root{ 
+      --primary-black: hsl(0, 0%, 8%);
+      --primary-white: hsl(0, 0%, 100%);
+      --primary-black-hover: hsl(0, 0%, 18%);
+      --primary-white-hover: hsl(0, 0%, 90%);
       --border-radius: 3px;
     }
     
