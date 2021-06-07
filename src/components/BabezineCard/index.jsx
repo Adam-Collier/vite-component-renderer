@@ -10,7 +10,7 @@ const Card = styled(Stack)`
 
   @media (min-width: 768px) {
     max-width: 360px;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0rem 1rem 1.5rem;
   }
 `;
 

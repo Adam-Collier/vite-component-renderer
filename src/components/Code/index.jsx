@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { globalStyles } from "../../styles/global";
-import { Button } from "../Button";
+import { Button } from "vite-storybook";
 import { Copy, Loader, Check } from "react-feather";
 
 import { lazyLoading } from "../../template-scripts/lazyloading";
