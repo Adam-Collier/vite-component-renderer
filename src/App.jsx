@@ -2,18 +2,9 @@ import React from "react";
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import { globalStyles } from "./styles/global";
-import { BabezineCard } from "./components/BabezineCard";
-import {
-  Blogposts,
-  Button,
-  Carousel,
-  Flex,
-  Grid,
-  HeroBanner,
-  ShoppableImage,
-  Stack,
-  Text,
-} from "vite-storybook";
+import KlarnaHaulidayLogo from "./svgs/hermes.svg?component";
+import { Button, Image, Flex, Stack, Text } from "vite-storybook";
+import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
@@ -32,299 +23,74 @@ const GlobalStyle = createGlobalStyle`
 //   }
 // };
 
+const HeroTwoCol = styled(Flex)`
+  background-color: #a8e9ff;
+
+  > section:first-of-type {
+    padding: 2rem;
+  }
+`;
+
+const Container = styled(Stack)`
+  @media (min-width: 1280px) {
+    margin-top: 3rem;
+  }
+`;
+
 function App() {
   return (
     <>
       <GlobalStyle />
       {/* the container className is important for the static lazyloading script */}
-      <Stack gap={6} className="container">
-        <Carousel>
-          <HeroBanner
-            link="/beauty/beauty-brands/illamasqua"
-            logo="https://media.missguided.com/i/missguided/illamasqua_logo"
-            src={[
-              "https://media.missguided.com/i/missguided/illamasqua_hero_banner_desktop",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/illamasqua_hero_banner_desktop-1",
-              },
-            ]}
-            subcopy="With unrivalled pigmentation, Illamasqua celebrate self-expression to inspire the professional makeup artist and every-day enthusiast."
-            noContentBackground
-            contentColor="var(--primary-white)"
-            alt="Illamasqua Hero"
-            buttonType="secondary"
-            buttonVariant="outline"
+      <Container gap={3} className="container">
+        <HeroTwoCol itemFlex="1 1 450px" align="center" maxWidth="xl">
+          <Flex align="center" justify="center">
+            <Flex gap={1} direction="column" customMaxWidth={400}>
+              <div style={{ width: "160px" }}>
+                <KlarnaHaulidayLogo />
+              </div>
+              <Text size="2xl" titling>
+                Hermes Play with Missguided
+              </Text>
+              <Text size="lg">
+                Dress for the weather you want and score 25% off your next order
+                using code “xxxx”*
+              </Text>
+              <Button text="shop now" link="/new-in" />
+            </Flex>
+          </Flex>
+          <Image
+            alt="hero image"
+            height={640}
+            sizes="(max-width: 600px) 100vw, (min-width: 1280px) 632px, 50vw"
+            src="https://media.missguided.com/i/missguided/hermes_hero"
+            width={640}
+            quality={90}
           />
-          <HeroBanner
-            link="/beauty/beauty-brands/bondi-sands"
-            logo="https://media.missguided.com/i/missguided/bondi_sands_logo"
-            src={[
-              "https://media.missguided.com/i/missguided/bondi_sands_hero_banner_desktop_1",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/bondi_sands_hero_banner_mobile",
-              },
-            ]}
-            subcopy="More than the best self-tanning products, Bondi Sands is about sand, sea and sun and the lifestyle that comes with it. Australian made, globally loved."
-            noContentBackground
-            alt="Bondi Sands Hero"
-            buttonVariant="outline"
-          />
-          <HeroBanner
-            link="/beauty/beauty-brands/cloud-nine"
-            logo="https://media.missguided.com/i/missguided/cloud_nine_hair_styled_hero_logo"
-            src={[
-              "https://media.missguided.com/i/missguided/cloud_nine_hero_banner_desktop",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/cloud_nine_hero_banner_mobile",
-              },
-            ]}
-            subcopy="Shape your hair's natural beauty. Cloud Nine styling tools are developed with Kinder Styling Technology. For healthier stronger, shinier hair."
-            noContentBackground
-            contentColor="var(--primary-white)"
-            alt="Cloud Nine Hero"
-          />
-        </Carousel>
-        <Stack
-          maxWidth="sm"
-          gap={1.5}
-          direction="column"
-          align="center"
-          padding
-        >
-          <Text element="p" size="base" align="center">
-            We don’t just do clothes. Make Missguided your number 1 spot for all
-            things beauty. Level up your cosmetics collection with makeup,
-            haircare and beauty tools from hundreds of your favourite brands.
-            From Simple skincare to Cloud Nine straighteners, we’ve got every
-            step of your getting ready routine covered.
+        </HeroTwoCol>
+        <Stack gap={1.45} maxWidth="lg" padding>
+          <Text size="md" align="center">
+            We’re dropping the best deals of the season for{" "}
+            <strong>2 days only</strong>. March 1-2. It’s bigger than a
+            sale—it’s a Hauliday™. Save an extra 20% off* and pay in 4,
+            interest-free payments, with Klarna. Just in time for your
+            spring/summer wardrobe refresh (18+, US Only, T&C's apply).
           </Text>
-          <Button
-            link="/beauty"
-            text="shop all beauty"
-            variant="fill"
-            size="md"
-          />
-        </Stack>
-        <Flex maxWidth="xl" itemFlex="1 1 180px" gap={1} padding>
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/new_in_21_04_21"
-            width={300}
-            height={375}
-            link="/new-in/beauty"
-            text="shop new in"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/hawaiian_tropic_brand_slot"
-            width={300}
-            height={375}
-            link="/beauty/beauty-brands/hawaiian-tropic"
-            text="shop Hawaiian Tropic"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/missguided_fragrance_brand_slot"
-            width={300}
-            height={375}
-            link="/beauty/perfume"
-            text="shop Fragrance"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/inglot_brand_slot"
-            width={300}
-            height={375}
-            link="/beauty/beauty-brands/inglot"
-            text="shop Inglot"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-        </Flex>
-        <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
-          <BabezineCard />
-          <Blogposts
-            postIds={[81345, 80981, 78697, 77554]}
-            isCarousel
-            slidesPerView={3.5}
-            slidesPerViewMob={1.5}
-            spacing={16}
-            offsetStart={1}
-            arrowsPosition={["top", "right"]}
-          />
-        </Flex>
-        <Stack maxWidth="sm" gap={1.45} align="center" padding>
-          <Text element="h3" size="2xl" align="center" heading>
-            SHOP BY CATEGORY
-          </Text>
-          <Text align="center">
-            Invest in yourself (and your makeup bag). Shop beauty products from
-            Missguided online now. Browse Face products and shop foundations and
-            concealers from hundreds of different brands. Create bold statement
-            eyes, with Rimmel liquid eyeliner, Iconic cream shadows and
-            lengthening mascara. Add the finishing touch to any look, with bold
-            lipsticks from Inglot, plumping glosses and matching liners.
+          <Text size="xs" align="center" color="grey-3" weight={400}>
+            *T&C’s This offer for a limited time only and entitles customers an
+            extra 20% discount on their order. Offer applies to items purchased
+            on www.missguidedus.com website & US App and excludes sale, beauty,
+            Playboy Lifestyle Collection and brands. This offer cannot be used
+            in conjunction with any other code, discount, offer or promotion. To
+            redeem enter code (HAULIDAY) at the checkout. This promotion is
+            administered by Missguided Limited (company number 3235904) of
+            Wharfside, 75 Trafford Wharf Road, Salford, Manchester, M17 1ES.
           </Text>
         </Stack>
-        <Flex maxWidth="xl" itemFlex="1 1 180px" padding>
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/category_face"
-            width={298}
-            height={298}
-            text="shop skincare"
-            link="/beauty/skincare"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/category_eye"
-            width={298}
-            height={298}
-            text="shop makeup"
-            link="/beauty/make-up"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/category_lips"
-            width={298}
-            height={298}
-            text="shop lips"
-            link="/beauty/make-up/lipstick-and-lipgloss"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-          <ShoppableImage
-            src="https://media.missguided.com/i/missguided/category_fragrance"
-            width={298}
-            height={298}
-            text="shop fragrance"
-            link="/beauty/perfume"
-            sizes="(max-width: 767px) 50vw, 300px"
-          />
-        </Flex>
-        <Stack maxWidth="md" gap={1.45} padding>
-          <Text element="h3" size="2xl" align="center" heading>
-            SHOP BY BRAND
-          </Text>
-          <Grid wrapWidth={200} gap={1}>
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/iconic_logo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/iconic"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/oh_my_lash_logo_1"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/oh-my-lash"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/babyliss_logo_1"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/babyliss"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/inglot_logo_1"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/inglot"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/simple_logo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/simple"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/rimmel_logo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/rimmel"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/logo_grid_garnier"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/garnier"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/logo_grid_hawaiian_tropic"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/hawaiian-tropic"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/logo_grid_foreo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/foreo"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/logo_grid_illamasqua"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/illamasqua"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/cloud_nine_hair_styled_grid_logo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/cloud-nine"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/bondi_sands_grid_logo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/bondi-sands"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-            />
-          </Grid>
-        </Stack>
-      </Stack>
+      </Container>
     </>
     // {/* {data.content.map((block, index) => renderer(block, index))} */}
   );
 }
+
 export default App;
