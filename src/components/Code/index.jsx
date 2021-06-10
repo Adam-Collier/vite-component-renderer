@@ -35,7 +35,7 @@ export const Code = () => {
       ${document.querySelector("[data-styled]").outerHTML}
       ${decodeHtmlEntities(document.querySelector(".container").outerHTML)}
       ${lazyLoading()}
-      ${keenSlider()}
+      ${document.querySelector(".keen-slider__slide") ? keenSlider() : ""}
       `;
 
   let addToHighlighter = async () => {
