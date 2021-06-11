@@ -59,21 +59,19 @@ function App() {
             buttonVariant="outline"
           />
           <HeroBanner
-            link="/beauty/beauty-brands/bondi-sands"
-            logo="https://media.missguided.com/i/missguided/bondi_sands_logo"
+            link="/beauty/beauty-brands/missguided-beauty"
+            logo="https://media.missguided.com/i/missguided/missguided_beauty_1"
             src={[
-              "https://media.missguided.com/i/missguided/bondi_sands_hero_banner_desktop_1",
+              "https://media.missguided.com/i/missguided/missguided_beauty_hero",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/bondi_sands_hero_banner_mobile",
+                src: "https://media.missguided.com/i/missguided/missguided_beauty_mobile",
               },
             ]}
-            subcopy="More than the best self-tanning products, Bondi Sands is about sand, sea and sun and the lifestyle that comes with it. Australian made, globally loved."
-            noContentBackground
-            alt="Bondi Sands Hero"
-            buttonVariant="outline"
+            subcopy="Upgrade your cosmetics collection with freckle pens, foundations in 24 shades, volume-enhancing mascaras, liquid highlighters and more."
+            alt="Missguided Beauty Hero"
           />
           <HeroBanner
             link="/beauty/beauty-brands/cloud-nine"
@@ -122,6 +120,7 @@ function App() {
             link="/new-in/beauty"
             text="shop new in"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="new in"
           />
           <ShoppableImage
             src="https://media.missguided.com/i/missguided/hawaiian_tropic_brand_slot"
@@ -130,22 +129,25 @@ function App() {
             link="/beauty/beauty-brands/hawaiian-tropic"
             text="shop Hawaiian Tropic"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="hawaiin tropic brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/missguided_fragrance_brand_slot"
+            src="https://media.missguided.com/i/missguided/bondi_sands_brand_slot?a"
             width={300}
             height={375}
-            link="/beauty/perfume"
-            text="shop Fragrance"
+            link="/beauty/beauty-brands/bondi-sands"
+            text="shop bondi sands"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="bondi sands"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/inglot_brand_slot"
+            src="https://media.missguided.com/i/missguided/iconic_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/inglot"
-            text="shop Inglot"
+            link="/beauty/beauty-brands/iconic"
+            text="shop Iconic"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="iconic brand"
           />
         </Flex>
         <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
@@ -181,6 +183,7 @@ function App() {
             text="shop skincare"
             link="/beauty/skincare"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="face category"
           />
           <ShoppableImage
             src="https://media.missguided.com/i/missguided/category_eye"
@@ -189,6 +192,7 @@ function App() {
             text="shop makeup"
             link="/beauty/make-up"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="eye category"
           />
           <ShoppableImage
             src="https://media.missguided.com/i/missguided/category_lips"
@@ -197,6 +201,7 @@ function App() {
             text="shop lips"
             link="/beauty/make-up/lipstick-and-lipgloss"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="lips category"
           />
           <ShoppableImage
             src="https://media.missguided.com/i/missguided/category_fragrance"
@@ -205,6 +210,7 @@ function App() {
             text="shop fragrance"
             link="/beauty/perfume"
             sizes="(max-width: 767px) 50vw, 300px"
+            alt="fragrance category"
           />
         </Flex>
         <Stack maxWidth="md" gap={1.45} padding>
@@ -220,6 +226,7 @@ function App() {
               link="/beauty/beauty-brands/iconic"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="iconic logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -229,6 +236,7 @@ function App() {
               link="/beauty/beauty-brands/oh-my-lash"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="oh my lash logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -238,6 +246,7 @@ function App() {
               link="/beauty/beauty-brands/babyliss"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="babyliss logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -247,6 +256,7 @@ function App() {
               link="/beauty/beauty-brands/inglot"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="inglot logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -256,6 +266,7 @@ function App() {
               link="/beauty/beauty-brands/simple"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="simple logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -265,6 +276,7 @@ function App() {
               link="/beauty/beauty-brands/rimmel"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="rimmel logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -274,6 +286,7 @@ function App() {
               link="/beauty/beauty-brands/garnier"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="garnier logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -283,6 +296,7 @@ function App() {
               link="/beauty/beauty-brands/hawaiian-tropic"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="hawaiian tropic logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -292,6 +306,7 @@ function App() {
               link="/beauty/beauty-brands/foreo"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="foreo logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -301,6 +316,7 @@ function App() {
               link="/beauty/beauty-brands/illamasqua"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="illamasqua logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -310,6 +326,7 @@ function App() {
               link="/beauty/beauty-brands/cloud-nine"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="cloud nine logo"
             />
             <ShoppableImage
               backgroundColor="none"
@@ -319,6 +336,7 @@ function App() {
               link="/beauty/beauty-brands/bondi-sands"
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
+              alt="bondi sands logo"
             />
           </Grid>
         </Stack>
