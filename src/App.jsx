@@ -24,15 +24,13 @@ const GlobalStyle = createGlobalStyle`
 // };
 
 const HeroTwoCol = styled(Flex)`
-  background-color: #a8e9ff;
-
   > section:first-of-type {
     padding: 2rem;
   }
 `;
 
 const Container = styled(Stack)`
-  @media (min-width: 1280px) {
+  @media (min-width: 1281px) {
     margin-top: 3rem;
   }
 `;
@@ -54,7 +52,7 @@ function App() {
               </Text>
               <Text size="lg">
                 Dress for the weather you want and score 25% off your next order
-                using code “xxxx”*
+                using code HERMES25*
               </Text>
               <Button text="shop now" link="/new-in" />
             </Flex>
@@ -69,20 +67,14 @@ function App() {
           />
         </HeroTwoCol>
         <Stack gap={1.45} maxWidth="lg" padding>
-          <Text size="md" align="center">
-            We’re dropping the best deals of the season for{" "}
-            <strong>2 days only</strong>. March 1-2. It’s bigger than a
-            sale—it’s a Hauliday™. Save an extra 20% off* and pay in 4,
-            interest-free payments, with Klarna. Just in time for your
-            spring/summer wardrobe refresh (18+, US Only, T&C's apply).
-          </Text>
           <Text size="xs" align="center" color="grey-3" weight={400}>
-            *T&C’s This offer for a limited time only and entitles customers an
-            extra 20% discount on their order. Offer applies to items purchased
-            on www.missguidedus.com website & US App and excludes sale, beauty,
-            Playboy Lifestyle Collection and brands. This offer cannot be used
+            *25% off Everything Code: HERMES25. This offer for a valid from the
+            14th June 2021 to 21st June 2021 and entitles customers to 25%
+            discount on their order. Offer applies to items purchased from the
+            www.missguided.co.uk website and Missguided UK App, and excludes
+            sale, Restyld, homeware outlet and beauty. This offer cannot be used
             in conjunction with any other code, discount, offer or promotion. To
-            redeem enter code (HAULIDAY) at the checkout. This promotion is
+            redeem enter code HERMES25 at the checkout. This promotion is
             administered by Missguided Limited (company number 3235904) of
             Wharfside, 75 Trafford Wharf Road, Salford, Manchester, M17 1ES.
           </Text>
