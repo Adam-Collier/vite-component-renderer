@@ -220,6 +220,16 @@ function App() {
           <Grid wrapWidth={200} gap={1}>
             <ShoppableImage
               backgroundColor="none"
+              src="https://media.missguided.com/i/missguided/missguided_beauty_logo?a"
+              width={260}
+              height={160}
+              link="/beauty/beauty-brands/missguided-beauty"
+              sizes="(max-width: 767px) 207px, 260px"
+              imageTypes={["webp", "png"]}
+              alt="missguided beauty logo"
+            />
+            <ShoppableImage
+              backgroundColor="none"
               src="https://media.missguided.com/i/missguided/iconic_logo"
               width={260}
               height={160}
@@ -297,16 +307,6 @@ function App() {
               sizes="(max-width: 767px) 207px, 260px"
               imageTypes={["webp", "png"]}
               alt="hawaiian tropic logo"
-            />
-            <ShoppableImage
-              backgroundColor="none"
-              src="https://media.missguided.com/i/missguided/logo_grid_foreo"
-              width={260}
-              height={160}
-              link="/beauty/beauty-brands/foreo"
-              sizes="(max-width: 767px) 207px, 260px"
-              imageTypes={["webp", "png"]}
-              alt="foreo logo"
             />
             <ShoppableImage
               backgroundColor="none"
