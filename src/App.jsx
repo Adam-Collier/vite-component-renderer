@@ -51,8 +51,8 @@ function App() {
                 Hermes Play with Missguided
               </Text>
               <Text size="lg">
-                Dress for the weather you want and score 25% off your next order
-                using code HERMES25*
+                Dress for the weather you want and score 10% off your next order
+                using code HERMES10*
               </Text>
               <Button text="shop now" link="/new-in" />
             </Flex>
@@ -68,13 +68,13 @@ function App() {
         </HeroTwoCol>
         <Stack gap={1.45} maxWidth="lg" padding>
           <Text size="xs" align="center" color="grey-3" weight={400}>
-            *25% off Everything Code: HERMES25. This offer for a valid from the
-            14th June 2021 to 21st June 2021 and entitles customers to 25%
+            *10% off Everything Code: HERMES10. This offer for a valid from the
+            14th June 2021 to 21st June 2021 and entitles customers to 10%
             discount on their order. Offer applies to items purchased from the
             www.missguided.co.uk website and Missguided UK App, and excludes
             sale, Restyld, homeware outlet and beauty. This offer cannot be used
             in conjunction with any other code, discount, offer or promotion. To
-            redeem enter code HERMES25 at the checkout. This promotion is
+            redeem enter code HERMES10 at the checkout. This promotion is
             administered by Missguided Limited (company number 3235904) of
             Wharfside, 75 Trafford Wharf Road, Salford, Manchester, M17 1ES.
           </Text>
