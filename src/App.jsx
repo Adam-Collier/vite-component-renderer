@@ -40,23 +40,23 @@ function App() {
       <Stack gap={6} className="container">
         <Carousel>
           <HeroBanner
-            link="/beauty/beauty-brands/illamasqua"
-            logo="https://media.missguided.com/i/missguided/illamasqua_logo"
+            link="/catalogsearch/result?q=eyeko"
+            logo="https://media.missguided.com/i/missguided/Eyeko"
             src={[
-              "https://media.missguided.com/i/missguided/illamasqua_hero_banner_desktop",
+              "https://media.missguided.com/i/missguided/eyeko_hero_banner_image",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/illamasqua_hero_banner_desktop-1",
+                src: "https://media.missguided.com/i/missguided/eyeko_hero_banner_mobile",
               },
             ]}
-            subcopy="With unrivalled pigmentation, Illamasqua celebrate self-expression to inspire the professional makeup artist and every-day enthusiast."
+            subcopy="At Eyeko London, we innovate high-performance products that apply effortlessly and work, regardless of what the day has in store."
             noContentBackground
-            contentColor="var(--primary-white)"
-            alt="Illamasqua Hero"
-            buttonType="secondary"
-            buttonVariant="outline"
+            contentColor="var(--primary-black)"
+            alt="Eyekso Hero"
+            buttonType="primary"
+            buttonVariant="fill"
           />
           <HeroBanner
             link="/beauty/beauty-brands/missguided-beauty"
@@ -74,19 +74,20 @@ function App() {
             alt="Missguided Beauty Hero"
           />
           <HeroBanner
-            link="/beauty/beauty-brands/cloud-nine"
-            logo="https://media.missguided.com/i/missguided/cloud_nine_hair_styled_hero_logo"
+            link="/beauty/beauty-brands/nip-and-fab"
+            logo="https://media.missguided.com/i/missguided/Nip and Fab_1"
             src={[
-              "https://media.missguided.com/i/missguided/cloud_nine_hero_banner_desktop",
+              "https://media.missguided.com/i/missguided/nip_and_fab_hero_banner_image",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/cloud_nine_hero_banner_mobile",
+                src: "https://media.missguided.com/i/missguided/nip_and_fab_hero_banner_mobile",
               },
             ]}
-            subcopy="Shape your hair's natural beauty. Cloud Nine styling tools are developed with Kinder Styling Technology. For healthier stronger, shinier hair."
+            subcopy="At Nip+Fab we make regime-based skincare solutions, rounded and balanced formulations within products of purpose, to deliver the desired results, long term."
             noContentBackground
+            buttonType="secondary"
             contentColor="var(--primary-white)"
             alt="Cloud Nine Hero"
           />
@@ -123,37 +124,37 @@ function App() {
             alt="new in"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/hawaiian_tropic_brand_slot"
+            src="https://media.missguided.com/i/missguided/made_by_sunday_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/hawaiian-tropic"
-            text="shop Hawaiian Tropic"
+            link="/beauty/beauty-brands/made-by-sunday"
+            text="shop Made by Sunday"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="hawaiin tropic brand"
+            alt="Made by Sunday brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/bondi_sands_brand_slot?a"
+            src="https://media.missguided.com/i/missguided/st_tropez_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/bondi-sands"
-            text="shop bondi sands"
+            link="/beauty/beauty-brands/st-tropez"
+            text="shop St Tropez"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="bondi sands"
+            alt="St Tropez brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/iconic_brand_slot"
+            src="https://media.missguided.com/i/missguided/babyliss_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/iconic"
-            text="shop Iconic"
+            link="/beauty/beauty-brands/babyliss"
+            text="shop Babyliss"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="iconic brand"
+            alt="Babyliss brand"
           />
         </Flex>
         <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
           <BabezineCard />
           <Blogposts
-            postIds={[81345, 80981, 78697, 77554]}
+            postIds={[82337, 82487, 82481, 82272]}
             isCarousel
             slidesPerView={3.5}
             slidesPerViewMob={1.5}
