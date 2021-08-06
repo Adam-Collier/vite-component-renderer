@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import { globalStyles } from "./styles/global";
-import KlarnaHaulidayLogo from "./svgs/hermes.svg?component";
-import { Button, Image, Flex, Stack, Text } from "vite-storybook";
+import IDmeLogo from "./svgs/id-me.svg?component";
+import { Image, Flex, Stack, Text, Button } from "vite-storybook";
 import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -44,42 +44,40 @@ function App() {
         <HeroTwoCol itemFlex="1 1 450px" align="center" maxWidth="xl">
           <Flex align="center" justify="center">
             <Flex gap={1} direction="column" customMaxWidth={400}>
-              <div style={{ width: "160px" }}>
-                <KlarnaHaulidayLogo />
-              </div>
-              <Text size="2xl" titling>
-                Hermes Play with Missguided
+              <Stack gap={1.5} customMaxWidth={400}>
+                <div style={{ width: "90px" }}>
+                  <IDmeLogo />
+                </div>
+                <Text size="3xl" titling>
+                  You deserve some new
+                </Text>
+              </Stack>
+              <Text size="md">
+                After all your hard work, you deserve some new outfits. As a way
+                of saying thank you to all of our verified medical
+                professionals, first responders, nurses, military members and
+                teachers, we are giving you 15% off your next order.
               </Text>
-              <Text size="lg">
-                Dress for the weather you want and score 25% off your next order
-                using code HERMES25*
-              </Text>
-              <Button text="shop now" link="/new-in" />
+              <Stack gap={2} customMaxWidth={400}>
+                <Text size="md">
+                  Verify your status with ID.me to claim your discount here…
+                </Text>
+                <Button
+                  text="verify now"
+                  link="https://hosted-pages.id.me/offers/missguided"
+                />
+              </Stack>
             </Flex>
           </Flex>
           <Image
             alt="hero image"
             height={640}
             sizes="(max-width: 600px) 100vw, (min-width: 1280px) 632px, 50vw"
-            src="https://media.missguided.com/i/missguided/hermes_hero"
+            src="https://media.missguided.com/i/missguided/ID-Me-1920x1686"
             width={640}
             quality={90}
           />
         </HeroTwoCol>
-        <Stack gap={1.45} maxWidth="lg" padding>
-          <Text size="xs" align="center" color="grey-3" weight={400}>
-            *25% off Everything Code: HERMES25. This offer for a valid from the
-            29th June 2021 to 6th July 2021 and entitles customers to 25%
-            discount on their order. Offer applies to items purchased from the
-            www.missguided.co.uk website and Missguided UK App, and excludes
-            sale, Restyld, homeware, Playboy, outlet and beauty. This offer
-            cannot be used in conjunction with any other code, discount, offer
-            or promotion. To redeem enter code HERMES25 at the checkout. This
-            promotion is administered by Missguided Limited (company number
-            3235904) of Wharfside, 75 Trafford Wharf Road, Salford, Manchester,
-            M17 1ES.
-          </Text>
-        </Stack>
       </Container>
     </>
     // {/* {data.content.map((block, index) => renderer(block, index))} */}
