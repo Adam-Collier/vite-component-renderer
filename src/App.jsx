@@ -40,56 +40,55 @@ function App() {
       <Stack gap={6} className="container">
         <Carousel>
           <HeroBanner
-            link="/catalogsearch/result?q=eyeko"
-            logo="https://media.missguided.com/i/missguided/Eyeko"
-            src={[
-              "https://media.missguided.com/i/missguided/eyeko_hero_banner_image",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/eyeko_hero_banner_mobile",
-              },
-            ]}
-            subcopy="At Eyeko London, we innovate high-performance products that apply effortlessly and work, regardless of what the day has in store."
-            noContentBackground
-            contentColor="var(--primary-black)"
-            alt="Eyekso Hero"
-            buttonType="primary"
-            buttonVariant="fill"
-          />
-          <HeroBanner
             link="/beauty/beauty-brands/missguided-beauty"
             logo="https://media.missguided.com/i/missguided/missguided_beauty_1"
             src={[
-              "https://media.missguided.com/i/missguided/missguided_beauty_hero",
+              "https://media.missguided.com/i/missguided/matte_trick_hero_banner_desktop",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/missguided_beauty_mobile",
+                src: "https://media.missguided.com/i/missguided/matte_trick_hero_banner_mobile_2?a",
               },
             ]}
-            subcopy="Upgrade your cosmetics collection with freckle pens, foundations in 24 shades, volume-enhancing mascaras, liquid highlighters and more."
+            subcopy="Discover the new Matte Trick Loose Powder, blurring the appearance of imperfections for all skin tones."
             alt="Missguided Beauty Hero"
           />
           <HeroBanner
-            link="/beauty/beauty-brands/nip-and-fab"
-            logo="https://media.missguided.com/i/missguided/Nip and Fab_1"
+            link="/beauty/beauty-brands/herbal-essentials"
+            logo="https://media.missguided.com/i/missguided/herbal_essentials?a"
             src={[
-              "https://media.missguided.com/i/missguided/nip_and_fab_hero_banner_image",
+              "https://media.missguided.com/i/missguided/herbal_essentials_hero_banner_desktop",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/nip_and_fab_hero_banner_mobile",
+                src: "https://media.missguided.com/i/missguided/herbal_essentials_hero_banner_mobile",
               },
             ]}
-            subcopy="At Nip+Fab we make regime-based skincare solutions, rounded and balanced formulations within products of purpose, to deliver the desired results, long term."
+            subcopy="At HERBAL ESSENTIALS we make Mineral-rich skincare for Softer, Smoother Skin with a Healthy Glow. For everyday skin confidence."
             noContentBackground
-            buttonType="secondary"
-            contentColor="var(--primary-white)"
-            alt="Cloud Nine Hero"
+            contentColor="var(--primary-black)"
+            alt="Herbal Essentials Hero"
+            buttonType="primary"
+            buttonVariant="fill"
+          />
+
+          <HeroBanner
+            link="/beauty/beauty-brands/babyliss"
+            logo="https://media.missguided.com/i/missguided/babyliss?b"
+            src={[
+              "https://media.missguided.com/i/missguided/babyliss_hero_banner_desktop",
+              {
+                media: "(max-width: 767px)",
+                width: 414,
+                height: 600,
+                src: "https://media.missguided.com/i/missguided/babyliss_hero_banner_mobile",
+              },
+            ]}
+            subcopy="At BaByliss we know that when your hair looks good, you feel in control and ready for anything. Powered by BaByliss, styled by you."
+            noContentBackground
+            alt="Babyliss Hero"
           />
         </Carousel>
         <Stack
@@ -124,37 +123,37 @@ function App() {
             alt="new in"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/made_by_sunday_brand_slot"
+            src="https://media.missguided.com/i/missguided/illamasqua_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/made-by-sunday"
-            text="shop Made by Sunday"
+            link="/beauty/beauty-brands/illamasqua"
+            text="shop illamasqua"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Made by Sunday brand"
+            alt="Illamasqua brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/st_tropez_brand_slot"
+            src="https://media.missguided.com/i/missguided/seoulista_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/st-tropez"
-            text="shop St Tropez"
+            link="/beauty/beauty-brands/seoulista-beauty"
+            text="shop Seoulista"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="St Tropez brand"
+            alt="Seoulista brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/babyliss_brand_slot"
+            src="https://media.missguided.com/i/missguided/flat_lay_co_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/babyliss"
-            text="shop Babyliss"
+            link="/beauty/beauty-brands/flat-lay-co"
+            text="shop Flat Lay Co"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Babyliss brand"
+            alt="Flat Lay Co brand"
           />
         </Flex>
         <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
           <BabezineCard />
           <Blogposts
-            postIds={[82337, 82487, 82481, 82272]}
+            postIds={[82337, 83035, 82799, 82272]}
             isCarousel
             slidesPerView={3.5}
             slidesPerViewMob={1.5}
