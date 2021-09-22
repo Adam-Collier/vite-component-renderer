@@ -40,55 +40,55 @@ function App() {
       <Stack gap={6} className="container">
         <Carousel>
           <HeroBanner
-            link="/beauty/beauty-brands/missguided-beauty"
-            logo="https://media.missguided.com/i/missguided/missguided_beauty_1"
+            link="/beauty/beauty-brands/here-we-flo"
+            logo="https://media.missguided.com/i/missguided/Hero We Flow"
             src={[
-              "https://media.missguided.com/i/missguided/matte_trick_hero_banner_desktop",
+              "https://media.missguided.com/i/missguided/the_flo_hero_banner_desktop",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/matte_trick_hero_banner_mobile_2?a",
+                src: "https://media.missguided.com/i/missguided/the_flo_hero_banner_mobile",
               },
             ]}
-            subcopy="Discover the new Matte Trick Loose Powder, blurring the appearance of imperfections for all skin tones."
-            alt="Missguided Beauty Hero"
+            subcopy="Here We Flo makes shamelessly natural care for life's messiest moments - from period care to sexual wellness and everything in between! "
+            alt="The Flo x Sex Education"
+            noContentBackground
+            contentColor="#fff"
           />
           <HeroBanner
-            link="/beauty/beauty-brands/herbal-essentials"
-            logo="https://media.missguided.com/i/missguided/herbal_essentials?a"
+            link="/beauty/beauty-brands/toni-and-guy"
+            logo="https://media.missguided.com/i/missguided/toni_and_guy_logo"
             src={[
-              "https://media.missguided.com/i/missguided/herbal_essentials_hero_banner_desktop",
+              "https://media.missguided.com/i/missguided/toni_and_guy_hero_banner_desktop",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/herbal_essentials_hero_banner_mobile",
+                src: "https://media.missguided.com/i/missguided/toni_and_guy_hero_banner_mobile",
               },
             ]}
-            subcopy="At HERBAL ESSENTIALS we make Mineral-rich skincare for Softer, Smoother Skin with a Healthy Glow. For everyday skin confidence."
-            noContentBackground
-            contentColor="var(--primary-black)"
-            alt="Herbal Essentials Hero"
+            subcopy="Transform your tresses with best-selling haircare brand Toni & Guy who have expertly crafted a range of premium shampoos, conditioners and styling products to suit every hair need."
             buttonType="primary"
             buttonVariant="fill"
+            alt="Toni & Guy hero"
           />
 
           <HeroBanner
-            link="/beauty/beauty-brands/babyliss"
-            logo="https://media.missguided.com/i/missguided/babyliss?b"
+            link="/beauty/beauty-brands/quick-flick"
+            logo="https://media.missguided.com/i/missguided/Quick Flick"
             src={[
-              "https://media.missguided.com/i/missguided/babyliss_hero_banner_desktop",
+              "https://media.missguided.com/i/missguided/quick_flick_hero_banner_desktop?a",
               {
                 media: "(max-width: 767px)",
                 width: 414,
                 height: 600,
-                src: "https://media.missguided.com/i/missguided/babyliss_hero_banner_mobile",
+                src: "https://media.missguided.com/i/missguided/quick_flick_hero_banner_mobile?b",
               },
             ]}
-            subcopy="At BaByliss we know that when your hair looks good, you feel in control and ready for anything. Powered by BaByliss, styled by you."
+            subcopy="The Quick Flick: beauty innovators, focused on challenging traditional cosmetic applications through time-saving and multi-functional products. "
             noContentBackground
-            alt="Babyliss Hero"
+            alt="Quick Flick Hero"
           />
         </Carousel>
         <Stack
@@ -123,13 +123,13 @@ function App() {
             alt="new in"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/illamasqua_brand_slot"
+            src="https://media.missguided.com/i/missguided/foreo_brand_slot?a"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/illamasqua"
-            text="shop illamasqua"
+            link="/beauty/beauty-brands/foreo"
+            text="shop foreo"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Illamasqua brand"
+            alt="Foreo brand"
           />
           <ShoppableImage
             src="https://media.missguided.com/i/missguided/seoulista_brand_slot"
@@ -141,21 +141,21 @@ function App() {
             alt="Seoulista brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/flat_lay_co_brand_slot"
+            src="https://media.missguided.com/i/missguided/playboy_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/flat-lay-co"
-            text="shop Flat Lay Co"
+            link="/beauty/beauty-brands/playboy"
+            text="shop playboy"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Flat Lay Co brand"
+            alt="Playboy brand"
           />
         </Flex>
         <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
           <BabezineCard />
           <Blogposts
-            postIds={[82337, 83035, 82799, 82272]}
+            postIds={[83283, 83604, 83953, 83754]}
             isCarousel
-            slidesPerView={3.5}
+            slidesPerView={3}
             slidesPerViewMob={1.5}
             spacing={16}
             offsetStart={1}
