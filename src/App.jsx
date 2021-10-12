@@ -57,24 +57,6 @@ function App() {
             contentColor="#fff"
           />
           <HeroBanner
-            link="/beauty/beauty-brands/toni-and-guy"
-            logo="https://media.missguided.com/i/missguided/toni_and_guy_logo"
-            src={[
-              "https://media.missguided.com/i/missguided/toni_and_guy_hero_banner_desktop",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/toni_and_guy_hero_banner_mobile",
-              },
-            ]}
-            subcopy="Transform your tresses with best-selling haircare brand Toni & Guy who have expertly crafted a range of premium shampoos, conditioners and styling products to suit every hair need."
-            buttonType="primary"
-            buttonVariant="fill"
-            alt="Toni & Guy hero"
-          />
-
-          <HeroBanner
             link="/beauty/beauty-brands/quick-flick"
             logo="https://media.missguided.com/i/missguided/Quick Flick"
             src={[
@@ -89,6 +71,23 @@ function App() {
             subcopy="The Quick Flick: beauty innovators, focused on challenging traditional cosmetic applications through time-saving and multi-functional products. "
             noContentBackground
             alt="Quick Flick Hero"
+          />
+          <HeroBanner
+            link="/beauty/beauty-brands/missguided-beauty?p=2"
+            logo="https://media.missguided.com/i/missguided/missguided_beauty_1"
+            src={[
+              "https://media.missguided.com/i/missguided/missguided_bath_and_body_hero_banner_desktop",
+              {
+                media: "(max-width: 767px)",
+                width: 414,
+                height: 600,
+                src: "https://media.missguided.com/i/missguided/missguided_bath_and_body_hero_banner_mobile",
+              },
+            ]}
+            subcopy="Soak away negative vibes and enjoy some me time with the new Missguided Bath and Body collection. Perfect gift set for any Missguided babe."
+            buttonType="primary"
+            buttonVariant="fill"
+            alt="Missguided Bath and Body hero"
           />
         </Carousel>
         <Stack
@@ -132,28 +131,28 @@ function App() {
             alt="Foreo brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/seoulista_brand_slot"
+            src="https://media.missguided.com/i/missguided/spotlight_oral_care_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/seoulista-beauty"
-            text="shop Seoulista"
+            link="/catalogsearch/result?q=spotlight+oral"
+            text="shop Spotlight Oral"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Seoulista brand"
+            alt="Spotlight Oral brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/playboy_brand_slot"
+            src="https://media.missguided.com/i/missguided/missguided_real_babe_brand_slot"
             width={300}
             height={375}
-            link="/beauty/beauty-brands/playboy"
-            text="shop playboy"
+            link="/catalogsearch/result?q=real+babe"
+            text="shop real babe"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Playboy brand"
+            alt="Missguided brand"
           />
         </Flex>
         <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
           <BabezineCard />
           <Blogposts
-            postIds={[83283, 83604, 83953, 83754]}
+            postIds={[84456, 84430, 83953, 83283]}
             isCarousel
             slidesPerView={3}
             slidesPerViewMob={1.5}
