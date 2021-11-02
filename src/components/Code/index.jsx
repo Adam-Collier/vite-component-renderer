@@ -6,6 +6,7 @@ import { Copy, Loader, Check } from "react-feather";
 
 import { lazyLoading } from "../../template-scripts/lazyloading";
 import { keenSlider } from "../../template-scripts/keen-slider";
+import { form } from "../../template-scripts/form";
 
 import prettier from "https://unpkg.com/prettier@2.2.1/esm/standalone.mjs";
 import parserHTML from "https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs";
@@ -36,6 +37,7 @@ export const Code = () => {
       ${decodeHtmlEntities(document.querySelector(".container").outerHTML)}
       ${lazyLoading()}
       ${keenSlider()}
+      ${form()}
       `;
 
   let addToHighlighter = async () => {

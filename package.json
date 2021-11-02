@@ -9,6 +9,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "react-feather": "^2.0.9",
     "vite-storybook": "git+https://github.com/Adam-Collier/vite-storybook.git"
   },
   "devDependencies": {

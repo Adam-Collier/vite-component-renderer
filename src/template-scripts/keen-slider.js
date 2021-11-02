@@ -1,4 +1,7 @@
-export const keenSlider = () => /* html */ `
+export const keenSlider = () => {
+  if (!document.querySelector(".keen-slider")) return "";
+
+  return /* html */ `
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>
     <script>
       let carouselHandler = () => {
@@ -33,3 +36,4 @@ export const keenSlider = () => /* html */ `
         });	
     </script>
 `;
+};

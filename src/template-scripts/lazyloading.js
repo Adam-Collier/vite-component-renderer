@@ -1,7 +1,8 @@
-export const lazyLoading = () =>
+export const lazyLoading = () => {
+  if (!document.querySelector(".container img")) return "";
   // use es6-string-html for syntax highlighting
-  /* html */
-  `<script>
+  return /* html */ `
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       let lazyImages = Array.from(
         document.querySelectorAll(".container picture")
@@ -36,3 +37,4 @@ export const lazyLoading = () =>
       });
     });
   </script> `;
+};
