@@ -6,6 +6,8 @@ import { BabezineCard } from "./components/BabezineCard";
 import { EmailSubscribe } from "./components/EmailSubscribe";
 import { Flex, Stack, Text, Image } from "vite-storybook";
 import styled from "styled-components";
+// import QR from "./qr-code-uk.svg?component";
+import QR from "./qr-code-us.svg?component";
 
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
@@ -36,13 +38,13 @@ function App() {
       <GlobalStyle />
       {/* the container className is important for the static lazyloading script */}
       <Container gap={2} className="container">
-        <Stack customMaxWidth={450}>
+        {/* <Stack customMaxWidth={450}>
           <Image
             src="https://media.missguided.com/i/missguided/Email"
             width={500}
             height={500}
           />
-        </Stack>
+        </Stack> */}
 
         <Stack
           maxWidth="md"
@@ -52,21 +54,36 @@ function App() {
           padding
         >
           <Text element="h1" size="3xl" align="center" titling>
-            Meet the new generation of cool kids.​
+            Black Friday 2021 is <br />
+            nearly here​
           </Text>
           <Text element="p" size="md" align="center">
-            Available in sizes 3-months to 7 years, MG Kids is designed with
-            both comfort and durability in mind. Discover stretchy, soft
-            clothing that will support your kids, no matter what playtime
-            brings.
+            Set your reminders, big things are coming. Black Friday 2021 is
+            about to hit Missguided. From party outfits to winter coats, it's
+            gonna be a big one. This year you actually have plans and we have
+            outfits to suit them all. Discover new deals dropping from 26th
+            November all the way to Cyber Monday 2021. Run, don't walk and
+            discover discounts on all your fave pieces including dresses, heels,
+            beauty, accessories and more. Sign up for early reminders and secure
+            the bag before anyone else.
           </Text>
           <Text element="p" size="md" align="center">
-            Sign up to Missguided emails to be the first in line for MG Kids
-            news, latest collabs and exclusive email offers. If you already
-            receive our emails, keep an eye on your inbox for the latest launch
-            updates.​
+            If you're not on the list already, sign up to Missguided emails
+            below and be the first to hear about Black Friday and exclusive
+            Cyber discounts.
           </Text>
-          <EmailSubscribe siteArea="Kids_Signup" />
+          <EmailSubscribe siteArea="BLACK_FRIDAY_LANDING_PAGE" territory="US" />
+          <Text element="h2" size="xl" align="center" heading>
+            Download the Missguided App
+          </Text>
+          <Text align="center">
+            Prefer to shop on the move? Download our app for on the go discounts
+            and enable those push notifications and be the first to know when
+            our offers go live.
+          </Text>
+          <Stack customMaxWidth={200}>
+            <QR />
+          </Stack>
         </Stack>
       </Container>
     </>
