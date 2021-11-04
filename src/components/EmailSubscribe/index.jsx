@@ -64,11 +64,18 @@ const Wrapper = styled(Stack)`
   }
 `;
 
-export const EmailSubscribe = ({ siteArea }) => {
+export const EmailSubscribe = ({ siteArea, territory }) => {
+  const postUrl = {
+    UK: "https://www.missguided.co.uk/newsletter/subscriber/new/",
+    IE: "https://www.missguided.com/ie/newsletter/subscriber/new",
+    EU: "https://www.missguided.eu/newsletter/subscriber/new",
+    US: "https://www.missguidedus.com/newsletter/subscriber/new",
+  };
+
   return (
     <Wrapper gap={0.5} className="signup-form">
       <form
-        action="https://www.missguided.co.uk/newsletter/subscriber/new/"
+        action={postUrl[territory]}
         method="post"
         className="form form-validate"
         id="newsletter-validate-detail"
@@ -81,7 +88,12 @@ export const EmailSubscribe = ({ siteArea }) => {
             id="area_of_site_footer"
             value={siteArea}
           />
-          <input type="hidden" name="territory" id="territory" value="UK" />
+          <input
+            type="hidden"
+            name="territory"
+            id="territory"
+            value={territory}
+          />
           <input
             type="email"
             name="newsletter"
