@@ -14,6 +14,7 @@ import {
   Stack,
   Text,
 } from "vite-storybook";
+import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
@@ -32,6 +33,12 @@ const GlobalStyle = createGlobalStyle`
 //   }
 // };
 
+const HeroBannerWrapper = styled(HeroBanner)`
+  section img {
+    max-width: 260px;
+  }
+`;
+
 function App() {
   return (
     <>
@@ -39,39 +46,6 @@ function App() {
       {/* the container className is important for the static lazyloading script */}
       <Stack gap={6} className="container">
         <Carousel>
-          <HeroBanner
-            link="/beauty/beauty-brands/here-we-flo"
-            logo="https://media.missguided.com/i/missguided/Hero We Flow"
-            src={[
-              "https://media.missguided.com/i/missguided/the_flo_hero_banner_desktop",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/the_flo_hero_banner_mobile",
-              },
-            ]}
-            subcopy="Here We Flo makes shamelessly natural care for life's messiest moments - from period care to sexual wellness and everything in between! "
-            alt="The Flo x Sex Education"
-            noContentBackground
-            contentColor="#fff"
-          />
-          <HeroBanner
-            link="/beauty/beauty-brands/quick-flick"
-            logo="https://media.missguided.com/i/missguided/Quick Flick"
-            src={[
-              "https://media.missguided.com/i/missguided/quick_flick_hero_banner_desktop?a",
-              {
-                media: "(max-width: 767px)",
-                width: 414,
-                height: 600,
-                src: "https://media.missguided.com/i/missguided/quick_flick_hero_banner_mobile?b",
-              },
-            ]}
-            subcopy="The Quick Flick: beauty innovators, focused on challenging traditional cosmetic applications through time-saving and multi-functional products. "
-            noContentBackground
-            alt="Quick Flick Hero"
-          />
           <HeroBanner
             link="/beauty/beauty-brands/missguided-beauty?p=2"
             logo="https://media.missguided.com/i/missguided/missguided_beauty_1"
@@ -88,6 +62,38 @@ function App() {
             buttonType="primary"
             buttonVariant="fill"
             alt="Missguided Bath and Body hero"
+          />
+          <HeroBanner
+            link="/catalogsearch/result?q=iconic+london"
+            logo="https://media.missguided.com/i/missguided/Iconic"
+            src={[
+              "https://media.missguided.com/i/missguided/iconic_hero_banner_desktop",
+              {
+                media: "(max-width: 767px)",
+                width: 414,
+                height: 600,
+                src: "https://media.missguided.com/i/missguided/iconic_hero_banner_mobile",
+              },
+            ]}
+            subcopy="Founded six years ago, ICONIC London is world-famous for our GLOW-giving products, loved by professional MUAs, celebrities and influencers alike! "
+            noContentBackground
+            alt="Iconic London Hero"
+          />
+          <HeroBannerWrapper
+            link="/catalogsearch/result?q=starskin"
+            logo="https://media.missguided.com/i/missguided/starskin_logo"
+            src={[
+              "https://media.missguided.com/i/missguided/starskin_hero_banner_desktop",
+              {
+                media: "(max-width: 767px)",
+                width: 414,
+                height: 600,
+                src: "https://media.missguided.com/i/missguided/starskin_hero_banner_mobile",
+              },
+            ]}
+            subcopy="Discover the secret behind award-winning skincare. Give your skin a star treatment with innovative beauty technologies and formulas. "
+            alt="Starskin Hero Banner"
+            contentColor="#fff"
           />
         </Carousel>
         <Stack
@@ -122,15 +128,6 @@ function App() {
             alt="new in"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/foreo_brand_slot?a"
-            width={300}
-            height={375}
-            link="/beauty/beauty-brands/foreo"
-            text="shop foreo"
-            sizes="(max-width: 767px) 50vw, 300px"
-            alt="Foreo brand"
-          />
-          <ShoppableImage
             src="https://media.missguided.com/i/missguided/spotlight_oral_care_brand_slot"
             width={300}
             height={375}
@@ -140,19 +137,29 @@ function App() {
             alt="Spotlight Oral brand"
           />
           <ShoppableImage
-            src="https://media.missguided.com/i/missguided/missguided_real_babe_brand_slot"
+            src="https://media.missguided.com/i/missguided/missguided_gifting"
             width={300}
             height={375}
-            link="/catalogsearch/result?q=real+babe"
-            text="shop real babe"
+            link="/beauty/beauty-gifts"
+            text="shop gifting"
             sizes="(max-width: 767px) 50vw, 300px"
-            alt="Missguided brand"
+            alt="Missguided gifting brand"
+          />
+
+          <ShoppableImage
+            src="https://media.missguided.com/i/missguided/herbal_essentials_2"
+            width={300}
+            height={375}
+            link="/beauty/beauty-brands/herbal-essentials"
+            text="shop Herbal Essentials"
+            sizes="(max-width: 767px) 50vw, 300px"
+            alt="Herbal Essentials brand"
           />
         </Flex>
         <Flex gap={1.45} itemFlex={["1 0 320px", "20 0 320px"]}>
           <BabezineCard />
           <Blogposts
-            postIds={[84456, 84430, 83953, 83283]}
+            postIds={[84456, 84523, 84533, 84091]}
             isCarousel
             slidesPerView={3}
             slidesPerViewMob={1.5}
