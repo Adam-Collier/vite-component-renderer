@@ -100,7 +100,7 @@ function App() {
         >
           <BabezineCard />
           <Blogposts
-            postIds={[84299, 75819, 84165, 75221]}
+            postIds={[76322, 84299, 75819, 84165, 75221]}
             isCarousel
             slidesPerView={2.5}
             slidesPerViewMob={1.5}
